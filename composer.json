@@ -6,7 +6,7 @@
     "type": "symfony-bundle",
     "keywords": ["couchbase"],
     "time": "2013-07-24",
-    "license": "GPL v3",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "Antoine Reyt",
