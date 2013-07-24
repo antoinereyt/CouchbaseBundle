@@ -20,7 +20,7 @@
     "target-dir": "Toiine/Bundle/CouchbaseBundle",
     "autoload": {
         "psr-0": {
-            "Toiine\\Bundle\\BuzzBundle": ""
+            "Toiine\\Bundle\\CouchbaseBundle": ""
         }
     }
 }
