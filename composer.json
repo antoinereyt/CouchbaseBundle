@@ -1,0 +1,26 @@
+{
+    "name": "toiine/couchbasebundle",
+    "description": "Symfony2 bundle to manipulate Couchbase Documents.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/toiine/CouchbaseBundle",
+    "type": "symfony-bundle",
+    "keywords": ["couchbase"],
+    "time": "2013-07-24",
+    "license": "GPL v3",
+    "authors": [
+        {
+            "name": "Antoine Reyt",
+            "email": "antoine.reyt@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "target-dir": "Toiine/Bundle/CouchbaseBundle",
+    "autoload": {
+        "psr-0": {
+            "Toiine\\Bundle\\BuzzBundle": ""
+        }
+    }
+}
