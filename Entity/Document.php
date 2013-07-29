@@ -14,11 +14,17 @@ class Document
     protected $key;
 
     /**
-     * Data of the document
+     * Data of the document.
      * @var string
      */
     protected $value;
 
+    /**
+     * Constructor.
+     *
+     * @param string $key : Key of the document.
+     * @param mixed $value : Data of the document.
+     */
     public function __construct($key = null, $value = null)
     {
         if (! is_null($key)) {
