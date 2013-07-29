@@ -10,9 +10,17 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $connections = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
+        $connectionsConfigurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
 
-        foreach ($connections as $name => $params) {
+        $connectionServicesDefinitions = $this->getDefinitions($connectionsConfigurations);
+        $container->addDefinitions($connectionServicesDefinitions);
+    }
+
+    public function getDefinitions($connectionsConfigurations)
+    {
+        $definitions = array();
+
+        foreach ($connectionsConfigurations as $name => $params) {
             $args = array(
                 sprintf('%s:%s', $params['host'], $params['port']),
                 $params['username'],
@@ -22,7 +30,9 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
 
             $definition = new Definition('Couchbase', $args);
             $id = sprintf('couchbase.connection.%s', $name);
-            $container->addDefinitions(array($id => $definition));
+            $definitions[$id] = $definition;
         }
+
+        return $definitions;
     }
 }
