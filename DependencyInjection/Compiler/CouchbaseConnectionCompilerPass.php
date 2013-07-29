@@ -10,7 +10,7 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $connections = $container->getParameterBag()->resolveValue($container->getParameter('toine_couchbase.connections'));
+        $connections = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
 
         foreach ($connections as $name => $params) {
             $args = array(

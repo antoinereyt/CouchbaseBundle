@@ -22,7 +22,7 @@ class ToiineCouchbaseExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('toine_couchbase.connections', $config['connections']);
+        $container->setParameter('toiine_couchbase.connections', $config['connections']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
