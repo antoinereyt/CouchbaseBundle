@@ -41,8 +41,6 @@ class Configuration implements ConfigurationInterface
         $node = $builder->root('connections');
 
         $node
-            ->isRequired()
-            ->requiresAtLeastOneElement()
             ->useAttributeAsKey('name')
             ->prototype('array')
                 ->children()
