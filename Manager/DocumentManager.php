@@ -6,7 +6,7 @@ use \Couchbase;
 use Toiine\Bundle\CouchbaseBundle\Entity\Document;
 
 /**
- * get/set Document objects to a Couchbase bucket.
+ * Get/Set/Delete Document objects through a connection to a Couchbase bucket.
  */
 class DocumentManager
 {
