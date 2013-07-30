@@ -85,7 +85,7 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
             $id = sprintf('couchbase.document_manager.%s', $name);
 
             $args = array(
-                new Reference(sprintf('couchbase.connection.%s', $params['connection'])),
+                new Reference(sprintf('couchbase.connection.%s', $name)),
             );
 
             // Build definition
@@ -117,7 +117,7 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
 
             $args = array(
                 $params['documentClass'],
-                new Reference(sprintf('couchbase.connection.%s', $name)),
+                new Reference(sprintf('couchbase.connection.%s', $params['connection'])),
                 new Reference($serializerServiceId)
             );
 
