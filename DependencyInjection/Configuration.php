@@ -24,6 +24,9 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->append($this->addConnectionNode())
             ->end()
+            ->children()
+                ->append($this->addRepositoryNode())
+            ->end()
         ;
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
@@ -62,6 +65,34 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('bucket')
                         ->isRequired()
                         ->cannotBeEmpty()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
+        return $node;
+    }
+
+    public function addRepositoryNode()
+    {
+        $builder = new TreeBuilder();
+        $node = $builder->root('repositories');
+
+        $node
+            ->useAttributeAsKey('name')
+            ->prototype('array')
+                ->children()
+                    ->scalarNode('documentClass')
+                        ->cannotBeEmpty()
+                    ->end()
+                    ->scalarNode('connection')
+                        ->cannotBeEmpty()
+                    ->end()
+                    ->scalarNode('serializer')
+                        ->defaultNull()
+                    ->end()
+                    ->scalarNode('repositoryClass')
+                        ->defaultNull()
                     ->end()
                 ->end()
             ->end()

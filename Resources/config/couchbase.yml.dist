@@ -1,15 +1,25 @@
 connections:
-  conn1:
-    # default is "localhost"
-    # host:
-    # default is 8091
-    # port:
-    username: admin
-    password: admin
-    bucket: default
-  conn2:
-    host: couchbase.tld
-    port: 8092
-    username: couchbase
-    password: cOuchb4s3
-    bucket: bucket2
+    conn1:
+        # default is "localhost"
+        # host:
+        # default is 8091
+        # port:
+        username: admin
+        password: admin
+        bucket: default
+    conn2:
+        host: couchbase.tld
+        port: 8092
+        username: couchbase
+        password: cOuchb4s3
+        bucket: bucket2
+
+repositories:
+    foo:
+        documentClass: Vendor\\Bundle\\FooBundle\\Entity\\Foo
+        connection: conn1
+    bar:
+        documentClass: Vendor\\Bundle\\BarBundle\\Entity\\Bar
+        connection: conn2
+        serializer: bar.serializer
+        repositoryClass: Vendor\\Bundle\\BarBundle\\Repository\\BarRepository

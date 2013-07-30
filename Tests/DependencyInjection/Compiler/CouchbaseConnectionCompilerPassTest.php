@@ -13,7 +13,8 @@ class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
     public function testProcessHasBuiltAllCouchbaseConnectionServices()
     {
         $container = new ContainerBuilder();
-        $container->setParameter('toiine_couchbase.connections', $this->getParameters());
+        $container->setParameter('toiine_couchbase.connections',  $this->getConnectionsParameters());
+        $container->setParameter('toiine_couchbase.repositories', $this->getRepositoriesParameters());
 
         $this->process($container);
 
@@ -24,6 +25,14 @@ class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
         // DocumentManager services
         $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn1'));
         $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn2'));
+
+        // Repository services
+        $this->assertTrue($container->hasDefinition('couchbase.repository.foo'));
+        $this->assertEquals('Toiine\Bundle\CouchbaseBundle\Respository\Respository', $container->getDefinition('couchbase.repository.foo')->getClass());
+
+        $this->assertTrue($container->hasDefinition('couchbase.repository.bar'));
+        $this->assertEquals('Vendor\\Bundle\\BarBundle\\epository\\BarRepository', $container->getDefinition('couchbase.repository.bar')->getClass());
+
     }
 
     protected function process(ContainerBuilder $container)
@@ -32,7 +41,7 @@ class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
         $pass->process($container);
     }
 
-    protected function getParameters()
+    protected function getConnectionsParameters()
     {
         return array(
             'conn1' => array(
@@ -40,7 +49,7 @@ class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
                 'port'     => '8091',
                 'username' => 'user',
                 'password' => 'passw0rd',
-                'bucket'   => 'bucket1'
+                'bucket'   => 'bucket1',
             ),
             'conn2' => array(
                 'host'     => '10.0.0.1',
@@ -49,6 +58,22 @@ class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
                 'password' => 'passw0rd2',
                 'bucket'   => 'bucket2'
             )
+        );
+    }
+
+    protected function getRepositoriesParameters()
+    {
+        return array(
+            'foo' => array(
+                'documentClass' => 'Vendor\\Bundle\\FooBundle\\Document\\Foo',
+                'connection'    => 'conn1',
+            ),
+            'bar' => array(
+                'documentClass'   => 'Vendor\\Bundle\\BarBundle\\Document\\Bar',
+                'connection'      => 'conn2',
+                'serializer'      => 'bar_bundle.serializer',
+                'repositoryClass' => 'Vendor\\Bundle\\BarBundle\\epository\\BarRepository',
+            ),
         );
     }
 }

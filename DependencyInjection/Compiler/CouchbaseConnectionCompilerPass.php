@@ -15,6 +15,7 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $connectionsConfigurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
+        $repositoriesConfigurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.repositories'));
 
         // Connections services
         $connectionServicesDefinitions = $this->getConnectionsDefinitions($connectionsConfigurations);
@@ -23,6 +24,11 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
         // DocumentManagers services
         $docManagerDefinitions = $this->getManagersDefinitions($connectionsConfigurations);
         $container->addDefinitions($docManagerDefinitions);
+
+        // Repository services
+        $repositoriesDefinitions = $this->getRepositoriesDefinitions($repositoriesConfigurations);
+        $container->addDefinitions($repositoriesDefinitions);
+
     }
 
     /**
@@ -76,6 +82,39 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
 
             // Build definition
             $definition = new Definition('Toiine\Bundle\CouchbaseBundle\Manager\DocumentManager', $args);
+
+            // Append definitions array
+            $definitions[$id] = $definition;
+        }
+
+        return $definitions;
+    }
+
+    /**
+     * Get the DocumentManager services definitions from the configuration.
+     *
+     * @param  array $connectionsConfigurations : all the connections parameters
+     *
+     * @return array of Definiton
+     */
+    public function getRepositoriesDefinitions($repositoriesConfigurations)
+    {
+        $definitions = array();
+
+        foreach ($repositoriesConfigurations as $name => $params) {
+            $id = sprintf('couchbase.repository.%s', $name);
+
+            $serializerServiceId = isset($params['serializer'])? $params['serializer'] : 'jms.serializer';
+            $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\Bundle\CouchbaseBundle\Respository\Respository';
+
+            $args = array(
+                $params['documentClass'],
+                new Reference(sprintf('couchbase.connection.%s', $name)),
+                new Reference($serializerServiceId)
+            );
+
+            // Build definition
+            $definition = new Definition($repositoryClass, $args);
 
             // Append definitions array
             $definitions[$id] = $definition;
