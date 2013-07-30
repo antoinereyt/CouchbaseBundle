@@ -14,8 +14,11 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
+        if (!$container->hasParameter('toiine_couchbase.connections')) {
+            return;
+        }
+
         $connectionsConfigurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
-        $repositoriesConfigurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.repositories'));
 
         // Connections services
         $connectionServicesDefinitions = $this->getConnectionsDefinitions($connectionsConfigurations);
@@ -24,6 +27,11 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
         // DocumentManagers services
         $docManagerDefinitions = $this->getManagersDefinitions($connectionsConfigurations);
         $container->addDefinitions($docManagerDefinitions);
+
+        if (!$container->hasParameter('toiine_couchbase.repositories')) {
+            return;
+        }
+        $repositoriesConfigurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.repositories'));
 
         // Repository services
         $repositoriesDefinitions = $this->getRepositoriesDefinitions($repositoriesConfigurations);
