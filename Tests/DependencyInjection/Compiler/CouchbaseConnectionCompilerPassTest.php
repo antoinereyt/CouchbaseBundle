@@ -17,8 +17,13 @@ class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
 
         $this->process($container);
 
+        // Connection services
         $this->assertTrue($container->hasDefinition('couchbase.connection.conn1'));
         $this->assertTrue($container->hasDefinition('couchbase.connection.conn2'));
+
+        // DocumentManager services
+        $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn1'));
+        $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn2'));
     }
 
     protected function process(ContainerBuilder $container)
