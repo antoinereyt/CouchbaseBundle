@@ -22,6 +22,15 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     public function getTestConfigTreeData()
     {
         return array(
+            // Empty config.
+            array(
+                array(
+                ),
+                array(
+                    'connections' => array(),
+                    'repositories' => array()
+                ),
+            ),
             // No specify host & port.
             array(
                 array(

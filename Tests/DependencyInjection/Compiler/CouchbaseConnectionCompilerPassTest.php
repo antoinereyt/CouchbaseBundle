@@ -10,6 +10,21 @@ use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\CouchbaseConnecti
 
 class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
 {
+    public function testProcessWithEmptyconfig()
+    {
+        $container = new ContainerBuilder();
+
+        $this->process($container);
+    }
+
+    public function testProcessWithNoRepositoryconfig()
+    {
+        $container = new ContainerBuilder();
+        $container->setParameter('toiine_couchbase.connections',  $this->getConnectionsParameters());
+
+        $this->process($container);
+    }
+
     public function testProcessHasBuiltAllCouchbaseConnectionServices()
     {
         $container = new ContainerBuilder();
