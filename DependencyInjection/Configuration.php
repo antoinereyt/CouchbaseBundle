@@ -22,34 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->arrayNode('connections')
-                    ->isRequired()
-                    ->requiresAtLeastOneElement()
-                    ->useAttributeAsKey('name')
-                    ->prototype('array')
-                    ->children()
-                        ->scalarNode('host')
-                            ->cannotBeEmpty()
-                            ->defaultValue('localhost')
-                        ->end()
-                        ->scalarNode('port')
-                            ->cannotBeEmpty()
-                            ->defaultValue('8091')
-                        ->end()
-                        ->scalarNode('username')
-                            ->isRequired()
-                            ->cannotBeEmpty()
-                        ->end()
-                        ->scalarNode('password')
-                            ->isRequired()
-                            ->cannotBeEmpty()
-                        ->end()
-                        ->scalarNode('bucket')
-                            ->isRequired()
-                            ->cannotBeEmpty()
-                        ->end()
-                    ->end()
-                ->end()
+                ->append($this->addConnectionNode())
             ->end()
         ;
         // Here you should define the parameters that are allowed to
@@ -57,5 +30,43 @@ class Configuration implements ConfigurationInterface
         // more information on that topic.
 
         return $treeBuilder;
+    }
+
+    public function addConnectionNode()
+    {
+        $builder = new TreeBuilder();
+        $node = $builder->root('connections');
+
+        $node
+            ->isRequired()
+            ->requiresAtLeastOneElement()
+            ->useAttributeAsKey('name')
+            ->prototype('array')
+                ->children()
+                    ->scalarNode('host')
+                        ->cannotBeEmpty()
+                        ->defaultValue('localhost')
+                    ->end()
+                    ->scalarNode('port')
+                        ->cannotBeEmpty()
+                        ->defaultValue('8091')
+                    ->end()
+                    ->scalarNode('username')
+                        ->isRequired()
+                        ->cannotBeEmpty()
+                    ->end()
+                    ->scalarNode('password')
+                        ->isRequired()
+                        ->cannotBeEmpty()
+                    ->end()
+                    ->scalarNode('bucket')
+                        ->isRequired()
+                        ->cannotBeEmpty()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
+        return $node;
     }
 }
