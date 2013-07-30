@@ -89,7 +89,6 @@ tools:
                 - controversial
                 - design
                 - naming
-                - unusedCode
 
     #
     # Analyzes the size and structure of a PHP project.
