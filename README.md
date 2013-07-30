@@ -14,15 +14,38 @@ Installing the bundle via packagist is the quickest and simplest method of insta
     $ php composer.phar require "toiine/couchbasebundle":"dev-master"
 
 ### Step 2: Enable the bundle in the kernel
+```php
+<?php
+// app/AppKernel.php
 
-    <?php
-    // app/AppKernel.php
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Toiine\Bundle\CouchbaseBundle\ToiineCouchbaseBundle(),
+        // ...
+    );
+}
+```
 
-    public function registerBundles()
-    {
-        $bundles = array(
-            // ...
-            new Toiine\Bundle\CouchbaseBundle\ToiineCouchbaseBundle(),
-            // ...
-        );
-    }
+## Configuration
+
+There is a sample configuration file in Resources/config/couchbase.yml.dist
+
+```yml
+connections:
+  conn1:
+    # default is "localhost"
+    # host:
+    # default is 8091
+    # port:
+    username: admin
+    password: admin
+    bucket: default
+  conn2:
+    host: couchbase.tld
+    port: 8092
+    username: couchbase
+    password: cOuchb4s3
+    bucket: bucket2
+```
