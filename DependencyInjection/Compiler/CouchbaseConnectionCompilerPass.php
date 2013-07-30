@@ -112,13 +112,13 @@ class CouchbaseConnectionCompilerPass implements CompilerPassInterface
         foreach ($repositoriesConfigurations as $name => $params) {
             $id = sprintf('couchbase.repository.%s', $name);
 
-            $serializerServiceId = isset($params['serializer'])? $params['serializer'] : 'jms.serializer';
+            $serializerServiceId = isset($params['serializer'])? $params['serializer'] : null;
             $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\Bundle\CouchbaseBundle\Respository\Respository';
 
             $args = array(
                 $params['documentClass'],
                 new Reference(sprintf('couchbase.connection.%s', $params['connection'])),
-                new Reference($serializerServiceId)
+                $serializerServiceId? new Reference($serializerServiceId):null
             );
 
             // Build definition
