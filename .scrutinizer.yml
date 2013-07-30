@@ -6,14 +6,17 @@ tools:
         extensions:
             - php
         command:              php-cs-fixer
-        enabled:              false
+        enabled:              true
         filter:
             paths:                []
             excluded_paths:       ['vendor/*', 'Tests/*']
         config:
             level:                all # Allowed Values: "psr0", "psr1", "psr2", "all"
 
-    sensiolabs_security_checker: false
+    #
+    # SensioLabs Security checker
+    #
+    sensiolabs_security_checker: true
 
     #
     # Runs PHP Code Sniffer
@@ -22,7 +25,7 @@ tools:
         extensions:
             - php
         command:              phpcs
-        enabled:              false
+        enabled:              true
         filter:
             paths:                []
             excluded_paths:       ['vendor/*', 'Tests/*']
@@ -55,7 +58,7 @@ tools:
         # A list of names that should be scanned (default: *.php)
         names:
             - "*.php"
-        enabled:              false
+        enabled:              true
 
     #
     # Analyzes the size and structure of a PHP project.
@@ -65,7 +68,7 @@ tools:
         names:
             - "*.php"
         excluded_dirs:        ['vendor/*']
-        enabled:              false
+        enabled:              true
 
     #
     # Runs the PHP Mess Detector (http://phpmd.org).
@@ -87,3 +90,19 @@ tools:
                 - design
                 - naming
                 - unusedCode
+
+    #
+    # Analyzes the size and structure of a PHP project.
+    #
+    php_pdepend:
+        command:              pdepend
+        configuration_file:   ~
+        suffixes:
+            - php
+        excluded_dirs:
+
+            # Default:
+            - vendor
+        enabled:              true
+
+    php_analyzer: true
