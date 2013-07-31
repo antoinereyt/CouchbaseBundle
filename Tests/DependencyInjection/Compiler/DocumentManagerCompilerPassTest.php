@@ -4,9 +4,9 @@ namespace Toiine\Bundle\CouchbaseBundle\Tests\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\ConnectionCompilerPass;
+use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\DocumentManagerCompilerPass;
 
-class ConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
+class DocumentManagerCompilerPassTest extends \PHPUnit_Framework_TestCase
 {
     public function testProcessWithEmptyconfig()
     {
@@ -22,14 +22,14 @@ class ConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
 
         $this->process($container);
 
-        // Connection services
-        $this->assertTrue($container->hasDefinition('couchbase.connection.conn1'));
-        $this->assertTrue($container->hasDefinition('couchbase.connection.conn2'));
+        // DocumentManager services
+        $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn1'));
+        $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn2'));
     }
 
     protected function process(ContainerBuilder $container)
     {
-        $pass = new ConnectionCompilerPass();
+        $pass = new DocumentManagerCompilerPass();
         $pass->process($container);
     }
 
