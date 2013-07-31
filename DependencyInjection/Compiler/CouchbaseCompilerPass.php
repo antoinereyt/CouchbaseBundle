@@ -8,38 +8,28 @@ use Symfony\Component\DependencyInjection\Definition;
 /**
  * Create dynamically the couchbase.<connectionName> services using the configuration.
  */
-class CouchbaseCompilerPass extends CompilerPass implements CompilerPassInterface
+class CouchbaseCompilerPass extends AbstractCompilerPass implements CompilerPassInterface
 {
-    /**
-     * Get the connections services definitions from the configuration.
-     *
-     * @param  array $connectionsConfigurations : all the connections parameters
-     *
-     * @return array of Definiton
-     */
-    public function getDefinitions($configurations)
+    /** @{@inheritdoc} */
+    public function getServiceId($name)
     {
-        $definitions = array();
+        return $this->generateCouchbaseServiceId($name);
+    }
 
-        foreach ($configurations as $name => $params) {
-            // Build serviceId
-            $id = $this->generateCouchbaseServiceId($name);
+    /** @{@inheritdoc} */
+    public function getDefinition($name, array $params)
+    {
+        // Build arguments
+        $args = array(
+            sprintf('%s:%s', $params['host'], $params['port']),
+            $params['username'],
+            $params['password'],
+            $params['bucket'],
+        );
 
-            // Build arguments
-            $args = array(
-                sprintf('%s:%s', $params['host'], $params['port']),
-                $params['username'],
-                $params['password'],
-                $params['bucket'],
-            );
+        // Build definition
+        $definition = new Definition('Couchbase', $args);
 
-            // Build definition
-            $definition = new Definition('Couchbase', $args);
-
-            // Append definitions array
-            $definitions[$id] = $definition;
-        }
-
-        return $definitions;
+        return $definition;
     }
 }

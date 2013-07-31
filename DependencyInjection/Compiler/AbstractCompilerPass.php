@@ -5,11 +5,57 @@ namespace Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class CompilerPass implements CompilerPassInterface
+abstract class AbstractCompilerPass implements CompilerPassInterface
 {
+    /**
+     * Get the key name of the needed configuration.
+     * 
+     * @return string
+     */
     protected function getParameterKey()
     {
         return 'toiine_couchbase.connections';
+    }
+
+    /**
+     * Get the service id.
+     *
+     * @param string $name
+     * @return string
+     */
+    abstract public function getServiceId($name);
+
+    /**
+     * Get a Definition service from a configuration node.
+     *
+     * @param string $name
+     * @param array $params
+     *
+     * @return Definition
+     */
+    abstract public function getDefinition($name, array $params);
+
+    /**
+     * Get the DocumentManager services definitions from the configuration.
+     *
+     * @param  array $configurations
+     *
+     * @return array of Definiton
+     */
+    public function getDefinitions($configurations)
+    {
+        $definitions = array();
+
+        foreach ($configurations as $name => $params) {
+            $id = $this->getServiceId($name);
+
+            $definition = $this->getDefinition($name, $params);
+
+            // Append definitions array
+            $definitions[$id] = $definition;
+        }
+
+        return $definitions;
     }
 
     /**

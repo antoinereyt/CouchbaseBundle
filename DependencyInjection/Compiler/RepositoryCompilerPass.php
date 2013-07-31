@@ -9,44 +9,21 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * Create dynamically the couchbase.repository.<connectionName> services using the configuration.
  */
-class RepositoryCompilerPass extends CompilerPass implements CompilerPassInterface
+class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPassInterface
 {
+    /** @{@inheritdoc} */
     protected function getParameterKey()
     {
         return 'toiine_couchbase.repositories';
     }
 
-    /**
-     * Get the DocumentManager services definitions from the configuration.
-     *
-     * @param  array $connectionsConfigurations : all the connections parameters
-     *
-     * @return array of Definiton
-     */
-    public function getDefinitions($configurations)
+    /** @{@inheritdoc} */
+    public function getServiceId($name)
     {
-        $definitions = array();
-
-        foreach ($configurations as $name => $params) {
-            $id = $this->generateRepositoryServiceId($name);
-
-            $definition = $this->getDefinition($name, $params);
-
-            // Append definitions array
-            $definitions[$id] = $definition;
-        }
-
-        return $definitions;
+        return $this->generateRepositoryServiceId($name);
     }
 
-    /**
-     * Get a Definition service from a configuration node.
-     *
-     * @param string $name
-     * @param array $params
-     *
-     * @return Definition
-     */
+    /** @{@inheritdoc} */
     public function getDefinition($name, array $params)
     {
         $serializerServiceId = isset($params['serializer'])? $params['serializer'] : null;

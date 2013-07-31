@@ -9,40 +9,15 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * Create dynamically the couchbase.document_manager.<connectionName> services using the configuration.
  */
-class DocumentManagerCompilerPass extends CompilerPass implements CompilerPassInterface
+class DocumentManagerCompilerPass extends AbstractCompilerPass implements CompilerPassInterface
 {
-    /**
-     * Get the DocumentManager services definitions from the configuration.
-     *
-     * @param  array $connectionsConfigurations : all the connections parameters
-     *
-     * @return array of Definiton
-     */
-    public function getDefinitions($configurations)
+    /** @{@inheritdoc} */
+    public function getServiceId($name)
     {
-        $definitions = array();
-
-        foreach ($configurations as $name => $params) {
-            // Build serviceId
-            $id = $this->generateDocumentManagerServiceId($name);
-
-            $definition = $this->getDefinition($name, $params);
-
-            // Append definitions array
-            $definitions[$id] = $definition;
-        }
-
-        return $definitions;
+        return $this->generateDocumentManagerServiceId($name);
     }
 
-    /**
-     * Get a Definition service from a configuration node.
-     *
-     * @param string $name
-     * @param array $params
-     *
-     * @return Definition
-     */
+    /** @{@inheritdoc} */
     public function getDefinition($name, array $params)
     {
         // Build arguments

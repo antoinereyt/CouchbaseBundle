@@ -9,40 +9,15 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * Create dynamically the couchbase.connection.<connectionName> services using the configuration.
  */
-class ConnectionCompilerPass extends CompilerPass implements CompilerPassInterface
+class ConnectionCompilerPass extends AbstractCompilerPass implements CompilerPassInterface
 {
-    /**
-     * Get the connections services definitions from the configuration.
-     *
-     * @param  array $connectionsConfigurations : all the connections parameters
-     *
-     * @return array of Definiton
-     */
-    public function getDefinitions($configurations)
+    /** @{@inheritdoc} */
+    public function getServiceId($name)
     {
-        $definitions = array();
-
-        foreach ($configurations as $name => $params) {
-            // Build serviceId
-            $id = $this->generateConnectionServiceId($name);
-
-            $definition = $this->getDefinition($name, $params);
-
-            // Append definitions array
-            $definitions[$id] = $definition;
-        }
-
-        return $definitions;
+        return $this->generateConnectionServiceId($name);
     }
 
-    /**
-     * Get a Definition service from a configuration node.
-     *
-     * @param string $name
-     * @param array $params
-     *
-     * @return Definition
-     */
+    /** @{@inheritdoc} */
     public function getDefinition($name, array $params)
     {
         // Build arguments
