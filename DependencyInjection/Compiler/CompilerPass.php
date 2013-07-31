@@ -7,6 +7,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class CompilerPass implements CompilerPassInterface
 {
+    protected function getParameterKey()
+    {
+        return 'toiine_couchbase.connections';
+    }
+
     /**
      * @inheritDoc()
      *
@@ -14,11 +19,13 @@ class CompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasParameter('toiine_couchbase.connections')) {
+        $parameterKey = $this->getParameterKey();
+
+        if (!$container->hasParameter($parameterKey)) {
             return;
         }
 
-        $configurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
+        $configurations = $container->getParameterBag()->resolveValue($container->getParameter($parameterKey));
 
         // DocumentManagers services
         $definitions = $this->getDefinitions($configurations);

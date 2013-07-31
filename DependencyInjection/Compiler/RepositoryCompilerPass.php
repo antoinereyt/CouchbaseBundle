@@ -3,7 +3,6 @@
 namespace Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -12,17 +11,9 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class RepositoryCompilerPass extends CompilerPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    protected function getParameterKey()
     {
-        if (!$container->hasParameter('toiine_couchbase.repositories')) {
-            return;
-        }
-
-        $configurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.repositories'));
-
-        // Repository services
-        $definitions = $this->getDefinitions($configurations);
-        $container->addDefinitions($definitions);
+        return 'toiine_couchbase.repositories';
     }
 
     /**
