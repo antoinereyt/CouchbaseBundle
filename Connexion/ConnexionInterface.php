@@ -7,7 +7,7 @@ interface ConnexionInterface
     /**
      * Get a Document by it's key.
      *
-     * @param  string $key
+     * @param string $key
      *
      * @return mixed
      */
@@ -17,7 +17,7 @@ interface ConnexionInterface
      * Push a Document to Couchbase.
      *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function set($key, $value);
 

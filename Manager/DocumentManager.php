@@ -29,7 +29,7 @@ class DocumentManager
     /**
      * Get a Document by it's key.
      *
-     * @param  string $key
+     * @param string $key
      *
      * @return Document
      */

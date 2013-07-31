@@ -37,7 +37,7 @@ class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPas
 
         // Build definition
         $definition = new Definition($repositoryClass, $args);
- 
+
         return $definition;
     }
 }

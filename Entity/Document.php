@@ -22,8 +22,8 @@ class Document
     /**
      * Constructor.
      *
-     * @param string $key : Key of the document.
-     * @param mixed $value : Data of the document.
+     * @param string $key   : Key of the document.
+     * @param mixed  $value : Data of the document.
      */
     public function __construct($key = null, $value = null)
     {

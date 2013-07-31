@@ -9,7 +9,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
 {
     /**
      * Get the key name of the needed configuration.
-     * 
+     *
      * @return string
      */
     protected function getParameterKey()
@@ -20,7 +20,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
     /**
      * Get the service id.
      *
-     * @param string $name
+     * @param  string $name
      * @return string
      */
     abstract public function getServiceId($name);
@@ -29,7 +29,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
      * Get a Definition service from a configuration node.
      *
      * @param string $name
-     * @param array $params
+     * @param array  $params
      *
      * @return Definition
      */
@@ -38,7 +38,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
     /**
      * Get the DocumentManager services definitions from the configuration.
      *
-     * @param  array $configurations
+     * @param array $configurations
      *
      * @return array of Definiton
      */
@@ -81,7 +81,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
     /**
      * Generate the couchbase service id for a given connectionName
      *
-     * @param  string $connectionName : the connection name
+     * @param string $connectionName : the connection name
      *
      * @return string : the service id
      */
@@ -93,7 +93,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
     /**
      * Generate the connection service id for a given connectionName
      *
-     * @param  string $connectionName : the connection name
+     * @param string $connectionName : the connection name
      *
      * @return string : the service id
      */
@@ -105,7 +105,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
     /**
      * Generate the documentManager service id for a given connectionName
      *
-     * @param  string $connectionName : the connection name
+     * @param string $connectionName : the connection name
      *
      * @return string : the service id
      */
@@ -117,7 +117,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
     /**
      * Generate the repository service id for a given repositoryName
      *
-     * @param  string $connectionName : the connection name
+     * @param string $connectionName : the connection name
      *
      * @return string : the service id
      */
