@@ -44,7 +44,7 @@ class RepositoryCompilerPass extends CompilerPass implements CompilerPassInterfa
 
             $args = array(
                 $params['documentClass'],
-                new Reference(sprintf('couchbase.connection.%s', $params['connection'])),
+                new Reference($this->generateConnectionServiceId($params['connection'])),
                 $serializerServiceId? new Reference($serializerServiceId):null
             );
 

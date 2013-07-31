@@ -18,6 +18,11 @@ class ConnectionCompilerPassTest extends CompilerPassTestCase
         // Connection services
         $this->assertTrue($container->hasDefinition('couchbase.connection.conn1'));
         $this->assertTrue($container->hasDefinition('couchbase.connection.conn2'));
+
+        $firstDefinition = $container->getDefinition('couchbase.connection.conn1');
+        $this->assertEquals('Toiine\Bundle\CouchbaseBundle\Connexion\Connexion', $firstDefinition->getClass());
+        $this->assertInstanceOf('Symfony\Component\DependencyInjection\Reference', $firstDefinition->getArgument(0));
+        $this->assertEquals('couchbase.conn1', $firstDefinition->getArgument(0));
     }
 
     protected function process(ContainerBuilder $container)

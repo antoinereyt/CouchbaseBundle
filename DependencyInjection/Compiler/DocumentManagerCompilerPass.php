@@ -8,23 +8,10 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Create dynamically the couchbase.dpcument_manager.<connectionName> services using the configuration.
+ * Create dynamically the couchbase.document_manager.<connectionName> services using the configuration.
  */
 class DocumentManagerCompilerPass extends CompilerPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
-    {
-        if (!$container->hasParameter('toiine_couchbase.connections')) {
-            return;
-        }
-
-        $configurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
-
-        // DocumentManagers services
-        $definitions = $this->getDefinitions($configurations);
-        $container->addDefinitions($definitions);
-    }
-
     /**
      * Get the DocumentManager services definitions from the configuration.
      *
@@ -37,10 +24,12 @@ class DocumentManagerCompilerPass extends CompilerPass implements CompilerPassIn
         $definitions = array();
 
         foreach ($configurations as $name => $params) {
-            $id = sprintf('couchbase.document_manager.%s', $name);
+            // Build serviceId
+            $id = $this->generateDocumentManagerServiceId($name);
 
+            // Build arguments
             $args = array(
-                new Reference(sprintf('couchbase.connection.%s', $name)),
+                new Reference($this->generateConnectionServiceId($name)),
             );
 
             // Build definition

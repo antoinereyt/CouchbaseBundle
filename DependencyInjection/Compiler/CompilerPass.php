@@ -14,6 +14,27 @@ class CompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
+        if (!$container->hasParameter('toiine_couchbase.connections')) {
+            return;
+        }
+
+        $configurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
+
+        // DocumentManagers services
+        $definitions = $this->getDefinitions($configurations);
+        $container->addDefinitions($definitions);
+    }
+
+    /**
+     * Generate the couchbase service id for a given connectionName
+     *
+     * @param  string $connectionName : the connection name
+     *
+     * @return string : the service id
+     */
+    public function generateCouchbaseServiceId($connectionName)
+    {
+        return sprintf('couchbase.%s', $connectionName);
     }
 
     /**
