@@ -21,7 +21,7 @@ class ConnectionCompilerPass extends CompilerPass implements CompilerPassInterfa
         $configurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
 
         // Connections services
-        $definitions = $this->getConnectionsDefinitions($configurations);
+        $definitions = $this->getDefinitions($configurations);
         $container->addDefinitions($definitions);
     }
 
@@ -32,7 +32,7 @@ class ConnectionCompilerPass extends CompilerPass implements CompilerPassInterfa
      *
      * @return array of Definiton
      */
-    public function getConnectionsDefinitions($configurations)
+    public function getDefinitions($configurations)
     {
         $definitions = array();
 

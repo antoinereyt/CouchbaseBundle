@@ -21,7 +21,7 @@ class DocumentManagerCompilerPass extends CompilerPass implements CompilerPassIn
         $configurations = $container->getParameterBag()->resolveValue($container->getParameter('toiine_couchbase.connections'));
 
         // DocumentManagers services
-        $definitions = $this->getManagersDefinitions($configurations);
+        $definitions = $this->getDefinitions($configurations);
         $container->addDefinitions($definitions);
     }
 
@@ -32,7 +32,7 @@ class DocumentManagerCompilerPass extends CompilerPass implements CompilerPassIn
      *
      * @return array of Definiton
      */
-    public function getManagersDefinitions($configurations)
+    public function getDefinitions($configurations)
     {
         $definitions = array();
 
