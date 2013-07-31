@@ -1,3 +1,6 @@
+before_commands:
+    - "composer install --prefer-source"
+
 tools:
     #
     # Runs the PHP CS Fixer (http://http://cs.sensiolabs.org/).
@@ -109,4 +112,13 @@ tools:
     #
     # Collects code coverage information about the changeset.
     #
-    php_code_coverage: true
+    php_code_coverage:
+        config_path:          ~
+        test_command:         phpunit
+
+        # (deprecated) Whether code coverage information should only be generated for changesets.
+        only_changesets:      false
+        enabled:              true
+        filter:
+            paths:                []
+            excluded_paths:       []
