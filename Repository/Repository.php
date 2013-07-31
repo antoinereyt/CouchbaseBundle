@@ -2,7 +2,7 @@
 
 namespace Toiine\Bundle\CouchbaseBundle\Repository;
 
-use Toiine\Bundle\CouchbaseBundle\Connexion\Connexion;
+use Toiine\Bundle\CouchbaseBundle\Connexion\ConnexionInterface;
 
 /**
  * Class to request Couchbase bucket for a given Document type.
@@ -27,7 +27,7 @@ class Repository
      */
     protected $serializer;
 
-    public function __construct($documentClass, Connexion $connexion, $serializer)
+    public function __construct($documentClass, ConnexionInterface $connexion, $serializer)
     {
         $this->documentClass = $documentClass;
         $this->connexion = $connexion;
