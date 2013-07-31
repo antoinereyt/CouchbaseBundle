@@ -12,7 +12,7 @@ tools:
         enabled:              true
         filter:
             paths:                []
-            excluded_paths:       ['vendor/*', 'Tests/*']
+            excluded_paths:       ["vendor*", "Tests/*"]
         config:
             level:                all # Allowed Values: "psr0", "psr1", "psr2", "all"
 
@@ -56,7 +56,7 @@ tools:
         min_tokens:           70
 
         # A list of excluded directories.
-        excluded_dirs:       ['vendor', 'Test']
+        excluded_dirs:       ['vendor', 'Tests']
 
         # A list of names that should be scanned (default: *.php)
         names:
@@ -70,7 +70,7 @@ tools:
         command:              phploc
         names:
             - "*.php"
-        excluded_dirs:        ['vendor/*']
+        excluded_dirs:        ['vendor', 'Tests']
         enabled:              true
 
     #
@@ -102,12 +102,11 @@ tools:
         suffixes:
             - php
         excluded_dirs:
-
-            # Default:
             - vendor
+            - Tests
         enabled:              true
 
-    php_analyzer: true
+    #php_analyzer: true
 
     #
     # Collects code coverage information about the changeset.
