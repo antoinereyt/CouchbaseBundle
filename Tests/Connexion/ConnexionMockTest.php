@@ -37,21 +37,43 @@ class ConnexionMockTest extends \PHPUnit_Framework_TestCase
     public function testSet()
     {
         $documents = array(
-            'key3' => array('value1'),
+            'key3' => array('value3'),
         );
 
         $conn = new ConnexionMock();
-        $conn->set('key3', array('value1'));
+        $conn->set('key3', array('value3'));
         $this->assertEquals($documents, $conn->getDocuments());
     }
 
     public function testGet()
     {
         $documents = array(
-            'key3' => array('value1'),
+            'key3' => array('value3'),
         );
 
         $conn = new ConnexionMock($documents);
-        $this->assertEquals(array('value1'), $conn->get('key3'));
+        $this->assertEquals(array('value3'), $conn->get('key3'));
+    }
+
+    public function testGetWithUnsetedKey()
+    {
+        $documents = array(
+            'key3' => array('value3'),
+        );
+
+        $conn = new ConnexionMock($documents);
+        $this->assertNull($conn->get('wrongKey'));
+    }
+
+    public function testDelete()
+    {
+        $documents = array(
+            'key3' => array('value3'),
+        );
+
+        $conn = new ConnexionMock($documents);
+        $conn->delete('key3');
+
+        $this->assertNull($conn->get('key3'));
     }
 }

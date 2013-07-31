@@ -22,7 +22,7 @@ class ConnexionMock implements ConnexionInterface
 
     public function get($key)
     {
-        return $this->documents[$key];
+        return isset($this->documents[$key])? $this->documents[$key]:null;
     }
 
     public function set($key, $value)
