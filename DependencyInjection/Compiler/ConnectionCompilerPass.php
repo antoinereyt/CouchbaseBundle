@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * Create dynamically the couchbase.connection.<connectionName> services using the configuration.
  */
-class CouchbaseConnectionCompilerPass implements CompilerPassInterface
+class ConnectionCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {

@@ -6,9 +6,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 use Symfony\Component\DependencyInjection\Compiler\CheckDefinitionValidityPass;
 
-use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\CouchbaseConnectionCompilerPass;
+use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\ConnectionCompilerPass;
 
-class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
+class ConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
 {
     public function testProcessWithEmptyconfig()
     {
@@ -52,7 +52,7 @@ class CouchbaseConnectionCompilerPassTest extends \PHPUnit_Framework_TestCase
 
     protected function process(ContainerBuilder $container)
     {
-        $pass = new CouchbaseConnectionCompilerPass();
+        $pass = new ConnectionCompilerPass();
         $pass->process($container);
     }
 
