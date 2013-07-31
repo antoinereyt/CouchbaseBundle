@@ -26,18 +26,33 @@ class ConnectionCompilerPass extends CompilerPass implements CompilerPassInterfa
             // Build serviceId
             $id = $this->generateConnectionServiceId($name);
 
-            // Build arguments
-            $args = array(
-                new Reference($this->generateCouchbaseServiceId($name))
-            );
-
-            // Build definition
-            $definition = new Definition('Toiine\Bundle\CouchbaseBundle\Connexion\Connexion', $args);
+            $definition = $this->getDefinition($name, $params);
 
             // Append definitions array
             $definitions[$id] = $definition;
         }
 
         return $definitions;
+    }
+
+    /**
+     * Get a Definition service from a configuration node.
+     *
+     * @param string $name
+     * @param array $params
+     *
+     * @return Definition
+     */
+    public function getDefinition($name, array $params)
+    {
+        // Build arguments
+        $args = array(
+            new Reference($this->generateCouchbaseServiceId($name))
+        );
+
+        // Build definition
+        $definition = new Definition('Toiine\Bundle\CouchbaseBundle\Connexion\Connexion', $args);
+
+        return $definition;
     }
 }

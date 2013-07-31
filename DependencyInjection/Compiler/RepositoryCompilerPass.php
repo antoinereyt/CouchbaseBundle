@@ -30,22 +30,37 @@ class RepositoryCompilerPass extends CompilerPass implements CompilerPassInterfa
         foreach ($configurations as $name => $params) {
             $id = $this->generateRepositoryServiceId($name);
 
-            $serializerServiceId = isset($params['serializer'])? $params['serializer'] : null;
-            $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\Bundle\CouchbaseBundle\Respository\Respository';
-
-            $args = array(
-                $params['documentClass'],
-                new Reference($this->generateConnectionServiceId($params['connection'])),
-                $serializerServiceId? new Reference($serializerServiceId):null
-            );
-
-            // Build definition
-            $definition = new Definition($repositoryClass, $args);
+            $definition = $this->getDefinition($name, $params);
 
             // Append definitions array
             $definitions[$id] = $definition;
         }
 
         return $definitions;
+    }
+
+    /**
+     * Get a Definition service from a configuration node.
+     *
+     * @param string $name
+     * @param array $params
+     *
+     * @return Definition
+     */
+    public function getDefinition($name, array $params)
+    {
+        $serializerServiceId = isset($params['serializer'])? $params['serializer'] : null;
+        $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\Bundle\CouchbaseBundle\Respository\Respository';
+
+        $args = array(
+            $params['documentClass'],
+            new Reference($this->generateConnectionServiceId($params['connection'])),
+            $serializerServiceId? new Reference($serializerServiceId):null
+        );
+
+        // Build definition
+        $definition = new Definition($repositoryClass, $args);
+ 
+        return $definition;
     }
 }

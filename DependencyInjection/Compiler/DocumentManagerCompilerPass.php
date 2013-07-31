@@ -26,18 +26,33 @@ class DocumentManagerCompilerPass extends CompilerPass implements CompilerPassIn
             // Build serviceId
             $id = $this->generateDocumentManagerServiceId($name);
 
-            // Build arguments
-            $args = array(
-                new Reference($this->generateConnectionServiceId($name)),
-            );
-
-            // Build definition
-            $definition = new Definition('Toiine\Bundle\CouchbaseBundle\Manager\DocumentManager', $args);
+            $definition = $this->getDefinition($name, $params);
 
             // Append definitions array
             $definitions[$id] = $definition;
         }
 
         return $definitions;
+    }
+
+    /**
+     * Get a Definition service from a configuration node.
+     *
+     * @param string $name
+     * @param array $params
+     *
+     * @return Definition
+     */
+    public function getDefinition($name, array $params)
+    {
+        // Build arguments
+        $args = array(
+            new Reference($this->generateConnectionServiceId($name)),
+        );
+
+        // Build definition
+        $definition = new Definition('Toiine\Bundle\CouchbaseBundle\Manager\DocumentManager', $args);
+
+        return $definition;
     }
 }
