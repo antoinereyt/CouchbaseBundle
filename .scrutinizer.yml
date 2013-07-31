@@ -105,3 +105,8 @@ tools:
         enabled:              true
 
     php_analyzer: true
+
+    #
+    # Collects code coverage information about the changeset.
+    #
+    php_code_coverage: true
