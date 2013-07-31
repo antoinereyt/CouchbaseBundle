@@ -2,8 +2,8 @@
 
 namespace Toiine\Bundle\CouchbaseBundle\Manager;
 
-use \Couchbase;
 use Toiine\Bundle\CouchbaseBundle\Entity\Document;
+use Toiine\Bundle\CouchbaseBundle\Connexion\ConnexionInterface;
 
 /**
  * Get/Set/Delete Document objects through a connection to a Couchbase bucket.
@@ -21,7 +21,7 @@ class DocumentManager
      *
      * @param Couchbase $connection
      */
-    public function __construct(Couchbase $connection)
+    public function __construct(ConnexionInterface $connection)
     {
         $this->connection = $connection;
     }
@@ -36,6 +36,10 @@ class DocumentManager
     public function get($key)
     {
         $rawDocument = $this->connection->get($key);
+
+        if (!$rawDocument) {
+            return null;
+        }
 
         return new Document($key, $rawDocument);
     }
