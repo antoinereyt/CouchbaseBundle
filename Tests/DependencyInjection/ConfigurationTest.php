@@ -1,8 +1,8 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\Tests\DependencyInjection;
+namespace Toiine\CouchbaseBundle\Tests\DependencyInjection;
 
-use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Configuration;
+use Toiine\CouchbaseBundle\DependencyInjection\Configuration;
 use Symfony\Component\Config\Definition\Processor;
 
 class ConfigurationTest extends \PHPUnit_Framework_TestCase

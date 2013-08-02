@@ -1,10 +1,10 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\Tests\DependencyInjection\Compiler;
+namespace Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\CouchbaseCompilerPass;
+use Toiine\CouchbaseBundle\DependencyInjection\Compiler\CouchbaseCompilerPass;
 
 class CouchbaseCompilerPassTest extends CompilerPassTestCase
 {

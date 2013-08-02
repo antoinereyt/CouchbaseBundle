@@ -1,6 +1,6 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler;
+namespace Toiine\CouchbaseBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Definition;
@@ -26,7 +26,7 @@ class DocumentManagerCompilerPass extends AbstractCompilerPass implements Compil
         );
 
         // Build definition
-        $definition = new Definition('Toiine\Bundle\CouchbaseBundle\Manager\DocumentManager', $args);
+        $definition = new Definition('Toiine\CouchbaseBundle\Manager\DocumentManager', $args);
 
         return $definition;
     }

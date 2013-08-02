@@ -1,8 +1,8 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\Tests\DependencyInjection;
+namespace Toiine\CouchbaseBundle\Tests\DependencyInjection;
 
-use Toiine\Bundle\CouchbaseBundle\ToiineCouchbaseBundle;
+use Toiine\CouchbaseBundle\ToiineCouchbaseBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class ToiineCouchbaseBundleTest extends \PHPUnit_Framework_TestCase

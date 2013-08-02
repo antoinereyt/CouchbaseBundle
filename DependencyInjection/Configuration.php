@@ -1,6 +1,6 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\DependencyInjection;
+namespace Toiine\CouchbaseBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

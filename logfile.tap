@@ -1,0 +1,31 @@
+TAP version 13
+ok 1 - Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMockTest::testConstructorWitoutArguments
+ok 2 - Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMockTest::testConstructorWitoutDocuments
+ok 3 - Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMockTest::testSetDocuments
+ok 4 - Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMockTest::testSet
+ok 5 - Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMockTest::testGet
+ok 6 - Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMockTest::testGetWithUnsetedKey
+ok 7 - Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMockTest::testDelete
+ok 8 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\AbstractCompilerPassTest::testGenerateConnectionServiceId
+ok 9 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\AbstractCompilerPassTest::testGenerateDocumentManagerServiceId
+ok 10 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\AbstractCompilerPassTest::testGenerateRepositoryServiceId
+ok 11 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\ConnectionCompilerPassTest::testProcessHasBuiltAllServices
+ok 12 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\ConnectionCompilerPassTest::testProcessWithEmptyconfig
+ok 13 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\CouchbaseCompilerPassTest::testProcessHasBuiltAllServices
+ok 14 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\CouchbaseCompilerPassTest::testProcessWithEmptyconfig
+ok 15 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\DocumentManagerCompilerPassTest::testProcessHasBuiltAllServices
+ok 16 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\DocumentManagerCompilerPassTest::testProcessWithEmptyconfig
+ok 17 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\RepositoryCompilerPassTest::testProcessHasBuiltAllServices
+ok 18 - Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler\RepositoryCompilerPassTest::testProcessWithEmptyconfig
+ok 19 - Toiine\CouchbaseBundle\Tests\DependencyInjection\ConfigurationTest::testConfigTree with data set #0 (array(), array(array(), array()))
+ok 20 - Toiine\CouchbaseBundle\Tests\DependencyInjection\ConfigurationTest::testConfigTree with data set #1 (array(array(array('user', 'passw0rd', 'bucket1'))), array(array(array('localhost', '8091', 'user', 'passw0rd', 'bucket1')), array()))
+ok 21 - Toiine\CouchbaseBundle\Tests\DependencyInjection\ConfigurationTest::testConfigTree with data set #2 (array(array(array('10.0.0.4', '9191', 'user', 'passw0rd', 'bucket1'))), array(array(array('10.0.0.4', '9191', 'user', 'passw0rd', 'bucket1')), array()))
+ok 22 - Toiine\CouchbaseBundle\Tests\DependencyInjection\ConfigurationTest::testConfigTree with data set #3 (array(array(array('10.0.0.4', '9191', 'user', 'passw0rd', 'bucket1')), array(array('foo', 'conn1'), array('bar', 'conn1', 'bar_bundle.serializer', 'Acme\\Bundle\\BarBundle\\Repository\\BarRepository'))), array(array(array('10.0.0.4', '9191', 'user', 'passw0rd', 'bucket1')), array(array('foo', 'conn1', NULL, NULL), array('bar', 'conn1', 'bar_bundle.serializer', 'Acme\\Bundle\\BarBundle\\Repository\\BarRepository'))))
+ok 23 - Toiine\CouchbaseBundle\Tests\Entity\DocumentTest::testConstructor
+ok 24 - Toiine\CouchbaseBundle\Tests\Manager\DocumentManagerTest::testGet
+ok 25 - Toiine\CouchbaseBundle\Tests\Manager\DocumentManagerTest::testSet
+ok 26 - Toiine\CouchbaseBundle\Tests\Manager\DocumentManagerTest::testDelete
+ok 27 - Toiine\CouchbaseBundle\Tests\DependencyInjection\ToiineCouchbaseBundleTest::testBuildWithEmptyConfiguration
+ok 28 - Toiine\CouchbaseBundle\Tests\DependencyInjection\ToiineCouchbaseBundleTest::testBuildWithoutRepository
+ok 29 - Toiine\CouchbaseBundle\Tests\DependencyInjection\ToiineCouchbaseBundleTest::testBuild
+1..29

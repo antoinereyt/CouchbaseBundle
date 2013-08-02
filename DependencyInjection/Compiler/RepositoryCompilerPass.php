@@ -1,6 +1,6 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler;
+namespace Toiine\CouchbaseBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Definition;
@@ -27,7 +27,7 @@ class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPas
     public function getDefinition($name, array $params)
     {
         $serializerServiceId = isset($params['serializer'])? $params['serializer'] : null;
-        $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\Bundle\CouchbaseBundle\Respository\Respository';
+        $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\CouchbaseBundle\Respository\Respository';
 
         $args = array(
             $params['documentClass'],

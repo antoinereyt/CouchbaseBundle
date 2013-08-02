@@ -25,10 +25,10 @@
         "symfony/http-kernel": "2.1.x-dev",
         "Phake/Phake": "v1.0.3"
     },
-    "target-dir": "Toiine/Bundle/CouchbaseBundle",
+    "target-dir": "Toiine/CouchbaseBundle",
     "autoload": {
         "psr-0": {
-            "Toiine\\Bundle\\CouchbaseBundle": ""
+            "Toiine\\CouchbaseBundle": ""
         }
     }
 }

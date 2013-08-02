@@ -1,13 +1,13 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\Tests\Entity;
+namespace Toiine\CouchbaseBundle\Tests\Entity;
 
-use Toiine\Bundle\CouchbaseBundle\Entity\Document;
+use Toiine\CouchbaseBundle\Entity\Document;
 
 class DocumentTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers Toiine\Bundle\CouchbaseBundle\Entity\Document::__construct()
+     * @covers Toiine\CouchbaseBundle\Entity\Document::__construct()
      */
     public function testConstructor()
     {

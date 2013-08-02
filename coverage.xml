@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1375459840">
+  <project timestamp="1375459840">
+    <package name="Toiine\CouchbaseBundle\Connexion">
+      <file name="/usr/local/var/www/CouchbaseBundle/Connexion/Connexion.php">
+        <class name="Connexion" namespace="Toiine\CouchbaseBundle\Connexion">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="20" coveredelements="0"/>
+        </class>
+        <line num="23" type="method" name="__construct" crap="2" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="35" type="method" name="get" crap="2" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="46" type="method" name="set" crap="2" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="56" type="method" name="delete" crap="2" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <metrics loc="60" ncloc="30" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="20" coveredelements="0"/>
+      </file>
+    </package>
+    <file name="/usr/local/var/www/CouchbaseBundle/Connexion/ConnexionInterface.php">
+      <line num="31" type="stmt" count="0"/>
+      <metrics loc="30" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="Toiine\CouchbaseBundle\DependencyInjection\Compiler">
+      <file name="/usr/local/var/www/CouchbaseBundle/DependencyInjection/Compiler/AbstractCompilerPass.php">
+        <class name="AbstractCompilerPass" namespace="Toiine\CouchbaseBundle\DependencyInjection\Compiler">
+          <metrics methods="9" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="21" coveredelements="18"/>
+        </class>
+        <line num="0" type="stmt" count="1"/>
+        <line num="15" type="method" name="getParameterKey" crap="1" count="6"/>
+        <line num="17" type="stmt" count="6"/>
+        <line num="26" type="method" name="getServiceId" crap="1" count="0"/>
+        <line num="36" type="method" name="getDefinition" crap="1" count="0"/>
+        <line num="45" type="method" name="getDefinitions" crap="2" count="4"/>
+        <line num="47" type="stmt" count="4"/>
+        <line num="49" type="stmt" count="4"/>
+        <line num="50" type="stmt" count="4"/>
+        <line num="52" type="stmt" count="4"/>
+        <line num="55" type="stmt" count="4"/>
+        <line num="56" type="stmt" count="4"/>
+        <line num="58" type="stmt" count="4"/>
+        <line num="88" type="method" name="generateCouchbaseServiceId" crap="1" count="2"/>
+        <line num="90" type="stmt" count="2"/>
+        <line num="100" type="method" name="generateConnectionServiceId" crap="1" count="4"/>
+        <line num="102" type="stmt" count="4"/>
+        <line num="112" type="method" name="generateDocumentManagerServiceId" crap="1" count="2"/>
+        <line num="114" type="stmt" count="2"/>
+        <line num="124" type="method" name="generateRepositoryServiceId" crap="1" count="2"/>
+        <line num="126" type="stmt" count="2"/>
+        <metrics loc="128" ncloc="65" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="18" coveredelements="18"/>
+      </file>
+      <file name="/usr/local/var/www/CouchbaseBundle/DependencyInjection/Compiler/ConnectionCompilerPass.php">
+        <class name="ConnectionCompilerPass" namespace="Toiine\CouchbaseBundle\DependencyInjection\Compiler">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+        </class>
+        <line num="15" type="method" name="getServiceId" crap="1" count="1"/>
+        <line num="17" type="stmt" count="1"/>
+        <line num="21" type="method" name="getDefinition" crap="1" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="26" type="stmt" count="1"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="1"/>
+        <line num="34" type="stmt" count="1"/>
+        <metrics loc="33" ncloc="24" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+      </file>
+      <file name="/usr/local/var/www/CouchbaseBundle/DependencyInjection/Compiler/CouchbaseCompilerPass.php">
+        <class name="CouchbaseCompilerPass" namespace="Toiine\CouchbaseBundle\DependencyInjection\Compiler">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
+        </class>
+        <line num="14" type="method" name="getServiceId" crap="1" count="1"/>
+        <line num="16" type="stmt" count="1"/>
+        <line num="20" type="method" name="getDefinition" crap="1" count="1"/>
+        <line num="24" type="stmt" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="26" type="stmt" count="1"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="1"/>
+        <line num="33" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <metrics loc="35" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
+      </file>
+      <file name="/usr/local/var/www/CouchbaseBundle/DependencyInjection/Compiler/DocumentManagerCompilerPass.php">
+        <class name="DocumentManagerCompilerPass" namespace="Toiine\CouchbaseBundle\DependencyInjection\Compiler">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+        </class>
+        <line num="15" type="method" name="getServiceId" crap="1" count="1"/>
+        <line num="17" type="stmt" count="1"/>
+        <line num="21" type="method" name="getDefinition" crap="1" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="26" type="stmt" count="1"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="1"/>
+        <line num="34" type="stmt" count="1"/>
+        <metrics loc="33" ncloc="24" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+      </file>
+      <file name="/usr/local/var/www/CouchbaseBundle/DependencyInjection/Compiler/RepositoryCompilerPass.php">
+        <class name="RepositoryCompilerPass" namespace="Toiine\CouchbaseBundle\DependencyInjection\Compiler">
+          <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="13" coveredelements="13"/>
+        </class>
+        <line num="15" type="method" name="getParameterKey" crap="1" count="2"/>
+        <line num="17" type="stmt" count="2"/>
+        <line num="21" type="method" name="getServiceId" crap="1" count="1"/>
+        <line num="23" type="stmt" count="1"/>
+        <line num="27" type="method" name="getDefinition" crap="4" count="1"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="30" type="stmt" count="1"/>
+        <line num="33" type="stmt" count="1"/>
+        <line num="34" type="stmt" count="1"/>
+        <line num="35" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="1"/>
+        <metrics loc="43" ncloc="35" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="13" coveredelements="13"/>
+      </file>
+    </package>
+    <package name="Toiine\CouchbaseBundle\DependencyInjection">
+      <file name="/usr/local/var/www/CouchbaseBundle/DependencyInjection/Configuration.php">
+        <class name="Configuration" namespace="Toiine\CouchbaseBundle\DependencyInjection">
+          <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="57" elements="60" coveredelements="60"/>
+        </class>
+        <line num="0" type="stmt" count="1"/>
+        <line num="18" type="method" name="getConfigTreeBuilder" crap="1" count="4"/>
+        <line num="20" type="stmt" count="4"/>
+        <line num="21" type="stmt" count="4"/>
+        <line num="24" type="stmt" count="4"/>
+        <line num="25" type="stmt" count="4"/>
+        <line num="26" type="stmt" count="4"/>
+        <line num="27" type="stmt" count="4"/>
+        <line num="28" type="stmt" count="4"/>
+        <line num="29" type="stmt" count="4"/>
+        <line num="34" type="stmt" count="4"/>
+        <line num="37" type="method" name="addConnectionNode" crap="1" count="4"/>
+        <line num="39" type="stmt" count="4"/>
+        <line num="40" type="stmt" count="4"/>
+        <line num="43" type="stmt" count="4"/>
+        <line num="44" type="stmt" count="4"/>
+        <line num="45" type="stmt" count="4"/>
+        <line num="46" type="stmt" count="4"/>
+        <line num="47" type="stmt" count="4"/>
+        <line num="48" type="stmt" count="4"/>
+        <line num="49" type="stmt" count="4"/>
+        <line num="50" type="stmt" count="4"/>
+        <line num="51" type="stmt" count="4"/>
+        <line num="52" type="stmt" count="4"/>
+        <line num="53" type="stmt" count="4"/>
+        <line num="54" type="stmt" count="4"/>
+        <line num="55" type="stmt" count="4"/>
+        <line num="56" type="stmt" count="4"/>
+        <line num="57" type="stmt" count="4"/>
+        <line num="58" type="stmt" count="4"/>
+        <line num="59" type="stmt" count="4"/>
+        <line num="60" type="stmt" count="4"/>
+        <line num="61" type="stmt" count="4"/>
+        <line num="62" type="stmt" count="4"/>
+        <line num="63" type="stmt" count="4"/>
+        <line num="64" type="stmt" count="4"/>
+        <line num="65" type="stmt" count="4"/>
+        <line num="66" type="stmt" count="4"/>
+        <line num="67" type="stmt" count="4"/>
+        <line num="70" type="stmt" count="4"/>
+        <line num="73" type="method" name="addRepositoryNode" crap="1" count="4"/>
+        <line num="75" type="stmt" count="4"/>
+        <line num="76" type="stmt" count="4"/>
+        <line num="79" type="stmt" count="4"/>
+        <line num="80" type="stmt" count="4"/>
+        <line num="81" type="stmt" count="4"/>
+        <line num="82" type="stmt" count="4"/>
+        <line num="83" type="stmt" count="4"/>
+        <line num="84" type="stmt" count="4"/>
+        <line num="85" type="stmt" count="4"/>
+        <line num="86" type="stmt" count="4"/>
+        <line num="87" type="stmt" count="4"/>
+        <line num="88" type="stmt" count="4"/>
+        <line num="89" type="stmt" count="4"/>
+        <line num="90" type="stmt" count="4"/>
+        <line num="91" type="stmt" count="4"/>
+        <line num="92" type="stmt" count="4"/>
+        <line num="93" type="stmt" count="4"/>
+        <line num="94" type="stmt" count="4"/>
+        <line num="95" type="stmt" count="4"/>
+        <line num="98" type="stmt" count="4"/>
+        <line num="101" type="stmt" count="1"/>
+        <metrics loc="100" ncloc="86" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="57" elements="60" coveredelements="60"/>
+      </file>
+      <file name="/usr/local/var/www/CouchbaseBundle/DependencyInjection/ToiineCouchbaseExtension.php">
+        <class name="ToiineCouchbaseExtension" namespace="Toiine\CouchbaseBundle\DependencyInjection">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="10" coveredelements="0"/>
+        </class>
+        <line num="20" type="method" name="load" crap="2" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <metrics loc="31" ncloc="23" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="10" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="Toiine\CouchbaseBundle\Entity">
+      <file name="/usr/local/var/www/CouchbaseBundle/Entity/Document.php">
+        <class name="Document" namespace="Toiine\CouchbaseBundle\Entity">
+          <metrics methods="5" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="8"/>
+        </class>
+        <line num="28" type="method" name="__construct" crap="3" count="4"/>
+        <line num="30" type="stmt" count="4"/>
+        <line num="31" type="stmt" count="4"/>
+        <line num="32" type="stmt" count="4"/>
+        <line num="34" type="stmt" count="4"/>
+        <line num="35" type="stmt" count="4"/>
+        <line num="36" type="stmt" count="4"/>
+        <line num="37" type="stmt" count="4"/>
+        <line num="95" type="stmt" count="0"/>
+        <metrics loc="94" ncloc="45" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+      </file>
+    </package>
+    <package name="Toiine\CouchbaseBundle\Manager">
+      <file name="/usr/local/var/www/CouchbaseBundle/Manager/DocumentManager.php">
+        <class name="DocumentManager" namespace="Toiine\CouchbaseBundle\Manager">
+          <metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+        </class>
+        <line num="24" type="method" name="__construct" crap="1" count="3"/>
+        <line num="26" type="stmt" count="3"/>
+        <line num="27" type="stmt" count="3"/>
+        <line num="36" type="method" name="get" crap="2" count="3"/>
+        <line num="38" type="stmt" count="3"/>
+        <line num="40" type="stmt" count="3"/>
+        <line num="41" type="stmt" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="52" type="method" name="set" crap="1" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="62" type="method" name="delete" crap="1" count="1"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <metrics loc="66" ncloc="37" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+      </file>
+    </package>
+    <package name="Toiine\CouchbaseBundle\Repository">
+      <file name="/usr/local/var/www/CouchbaseBundle/Repository/Repository.php">
+        <class name="Repository" namespace="Toiine\CouchbaseBundle\Repository">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
+        </class>
+        <line num="31" type="method" name="__construct" crap="2" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="45" type="method" name="findOneByKey" crap="6" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <metrics loc="55" ncloc="33" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="Toiine\CouchbaseBundle">
+      <file name="/usr/local/var/www/CouchbaseBundle/ToiineCouchbaseBundle.php">
+        <class name="ToiineCouchbaseBundle" namespace="Toiine\CouchbaseBundle">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+        </class>
+        <line num="0" type="stmt" count="1"/>
+        <line num="15" type="method" name="build" crap="1" count="3"/>
+        <line num="17" type="stmt" count="3"/>
+        <line num="19" type="stmt" count="3"/>
+        <line num="20" type="stmt" count="3"/>
+        <line num="21" type="stmt" count="3"/>
+        <line num="22" type="stmt" count="3"/>
+        <line num="23" type="stmt" count="3"/>
+        <line num="25" type="stmt" count="1"/>
+        <metrics loc="24" ncloc="24" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+      </file>
+    </package>
+    <metrics files="13" loc="732" ncloc="464" classes="12" methods="31" coveredmethods="24" conditionals="0" coveredconditionals="0" statements="159" coveredstatements="120" elements="190" coveredelements="144"/>
+  </project>
+</coverage>

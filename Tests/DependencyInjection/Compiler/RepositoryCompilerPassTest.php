@@ -1,10 +1,10 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\Tests\DependencyInjection\Compiler;
+namespace Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\RepositoryCompilerPass;
+use Toiine\CouchbaseBundle\DependencyInjection\Compiler\RepositoryCompilerPass;
 
 class RepositoryCompilerPassTest extends CompilerPassTestCase
 {
@@ -18,7 +18,7 @@ class RepositoryCompilerPassTest extends CompilerPassTestCase
 
         // Repository services
         $this->assertTrue($container->hasDefinition('couchbase.repository.foo'));
-        $this->assertEquals('Toiine\Bundle\CouchbaseBundle\Respository\Respository', $container->getDefinition('couchbase.repository.foo')->getClass());
+        $this->assertEquals('Toiine\CouchbaseBundle\Respository\Respository', $container->getDefinition('couchbase.repository.foo')->getClass());
 
         $this->assertTrue($container->hasDefinition('couchbase.repository.bar'));
         $this->assertEquals('Vendor\\Bundle\\BarBundle\\epository\\BarRepository', $container->getDefinition('couchbase.repository.bar')->getClass());

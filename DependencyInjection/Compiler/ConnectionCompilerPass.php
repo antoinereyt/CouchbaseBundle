@@ -1,6 +1,6 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler;
+namespace Toiine\CouchbaseBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Definition;
@@ -26,7 +26,7 @@ class ConnectionCompilerPass extends AbstractCompilerPass implements CompilerPas
         );
 
         // Build definition
-        $definition = new Definition('Toiine\Bundle\CouchbaseBundle\Connexion\Connexion', $args);
+        $definition = new Definition('Toiine\CouchbaseBundle\Connexion\Connexion', $args);
 
         return $definition;
     }

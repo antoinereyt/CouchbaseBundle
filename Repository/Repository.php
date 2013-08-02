@@ -1,8 +1,8 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\Repository;
+namespace Toiine\CouchbaseBundle\Repository;
 
-use Toiine\Bundle\CouchbaseBundle\Connexion\ConnexionInterface;
+use Toiine\CouchbaseBundle\Connexion\ConnexionInterface;
 use JMS\Serializer\SerializerInterface;
 
 /**

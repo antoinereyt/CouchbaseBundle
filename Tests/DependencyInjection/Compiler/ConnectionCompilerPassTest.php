@@ -1,10 +1,10 @@
 <?php
 
-namespace Toiine\Bundle\CouchbaseBundle\Tests\DependencyInjection\Compiler;
+namespace Toiine\CouchbaseBundle\Tests\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use Toiine\Bundle\CouchbaseBundle\DependencyInjection\Compiler\ConnectionCompilerPass;
+use Toiine\CouchbaseBundle\DependencyInjection\Compiler\ConnectionCompilerPass;
 
 class ConnectionCompilerPassTest extends CompilerPassTestCase
 {
@@ -20,7 +20,7 @@ class ConnectionCompilerPassTest extends CompilerPassTestCase
         $this->assertTrue($container->hasDefinition('couchbase.connection.conn2'));
 
         $firstDefinition = $container->getDefinition('couchbase.connection.conn1');
-        $this->assertEquals('Toiine\Bundle\CouchbaseBundle\Connexion\Connexion', $firstDefinition->getClass());
+        $this->assertEquals('Toiine\CouchbaseBundle\Connexion\Connexion', $firstDefinition->getClass());
         $this->assertInstanceOf('Symfony\Component\DependencyInjection\Reference', $firstDefinition->getArgument(0));
         $this->assertEquals('couchbase.conn1', $firstDefinition->getArgument(0));
     }
