@@ -5,7 +5,7 @@ namespace Toiine\CouchbaseBundle\Entity;
 /**
  * Represent a Couchbase document.
  */
-class Document
+class Document implements DocumentInterface
 {
     /**
      * Key of the document.
