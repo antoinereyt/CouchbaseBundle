@@ -27,7 +27,7 @@ class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPas
     public function getDefinition($name, array $params)
     {
         $serializerServiceId = isset($params['serializer'])? $params['serializer'] : null;
-        $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\CouchbaseBundle\Respository\Respository';
+        $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\CouchbaseBundle\Repository\Repository';
 
         $args = array(
             $params['documentClass'],
