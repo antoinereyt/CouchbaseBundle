@@ -1,0 +1,8 @@
+Toiine\CouchbaseBundle\Tests\Repository\FakeUserDocument:
+    properties:
+        firstname:
+            expose: true
+            type: string
+        name:
+            expose: true
+            type: string

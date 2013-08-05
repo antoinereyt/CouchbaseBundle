@@ -2,8 +2,10 @@
 
 namespace Toiine\CouchbaseBundle\Repository;
 
-use Toiine\CouchbaseBundle\Connexion\ConnexionInterface;
+use Toiine\CouchbaseBundle\Manager\DocumentManager;
 use JMS\Serializer\SerializerInterface;
+use Toiine\CouchbaseBundle\Entity\Document;
+use Toiine\CouchbaseBundle\Entity\DocumentInterface;
 
 /**
  * Class to request Couchbase bucket for a given Document type.
@@ -23,15 +25,15 @@ class Repository
     protected $connexion;
 
     /**
-     * Serializer
+     * SerializerInterface
      * @var
      */
     protected $serializer;
 
-    public function __construct($documentClass, ConnexionInterface $connexion, SerializerInterface $serializer)
+    public function __construct($documentClass, DocumentManager $documentManager, SerializerInterface $serializer)
     {
         $this->documentClass = $documentClass;
-        $this->connexion = $connexion;
+        $this->documentManager = $documentManager;
         $this->serializer = $serializer;
     }
 
@@ -40,16 +42,38 @@ class Repository
      *
      * @param string $key Key value of the Document
      *
-     * @return Object|null that represent the fetched Document.
+     * @return DocumentInterface|null that represent the fetched Document.
      */
     public function findOneByKey($key)
     {
-        $rawResult = $this->connexion->get($key);
+        $document = $this->documentManager->get($key);
 
-        if (!$rawResult) {
+        if (!$document) {
             return null;
         }
 
-        return $this->serializer->deserialize($rawResult, $this->documentClass, 'json');
+        return $this->serializer->deserialize($document->getValue(), $this->documentClass, 'json');
     }
+
+    public function persist(DocumentInterface $document)
+    {
+        $doc = $this->getDocument($document);
+
+        $this->documentManager->set($doc);
+    }
+
+    public function getDocument(DocumentInterface $document)
+    {
+        if ($document instanceof Document) {
+            return $document;
+        }
+
+        if ($document instanceof DocumentInterface) {
+            $value = $this->serializer->serialize($document, 'json');
+
+            return new Document($document->getKey(), $value);
+        }
+    // @codeCoverageIgnoreStart
+    }
+    // @codeCoverageIgnoreEnd
 }
