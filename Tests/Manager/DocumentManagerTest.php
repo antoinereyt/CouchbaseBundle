@@ -10,7 +10,11 @@ class DocumentManagerTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->documents = array('key1' => array('document1'));
+        $this->documents = array('key1' =>
+            '{
+                "k": "val"
+            }'
+        );
 
         $connexion = new ConnexionMock($this->documents);
         $this->manager = new DocumentManager($connexion);
