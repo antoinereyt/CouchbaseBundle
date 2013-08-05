@@ -31,7 +31,7 @@ class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPas
 
         $args = array(
             $params['documentClass'],
-            new Reference($this->generateConnectionServiceId($params['connection'])),
+            new Reference($this->generateDocumentManagerServiceId($params['connection'])),
             $serializerServiceId? new Reference($serializerServiceId):null
         );
 
