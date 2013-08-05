@@ -50,6 +50,6 @@ class Repository
             return null;
         }
 
-        return $this->serializer->deserialize($rawResult);
+        return $this->serializer->deserialize($rawResult, $this->documentClass, 'json');
     }
 }
