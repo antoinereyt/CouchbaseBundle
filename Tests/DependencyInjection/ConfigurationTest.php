@@ -120,8 +120,8 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                         'foo' => array(
                             'documentClass'   => 'foo',
                             'connection'      => 'conn1',
-                            'serializer'      => null,
-                            'repositoryClass' => null
+                            'serializer'      => 'jms_serializer',
+                            'repositoryClass' => 'Toiine\CouchbaseBundle\Repository\Repository'
                         ),
                         'bar' => array(
                             'documentClass'   => 'bar',

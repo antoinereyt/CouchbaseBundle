@@ -73,7 +73,6 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
 
         $configurations = $container->getParameterBag()->resolveValue($container->getParameter($parameterKey));
 
-        // DocumentManagers services
         $definitions = $this->getDefinitions($configurations);
         $container->addDefinitions($definitions);
     }
