@@ -1,0 +1,17 @@
+Toiine\CouchbaseBundle\Tests\Serializer\Fixture\FakeBookDocument:
+    properties:
+        title:
+            type: string
+            groups: [short, details]
+        author:
+            type: string
+            groups: [short, details]
+        isbn:
+            type: string
+            groups: [short, details]
+        dimensions:
+            type: string
+            groups: [details]
+        weigth:
+            type: string
+            groups: [details]
