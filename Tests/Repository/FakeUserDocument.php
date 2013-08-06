@@ -20,7 +20,7 @@ class FakeUserDocument implements DocumentInterface
 
     public function getKey()
     {
-        return sprintf('%s-%s', strtolower($this->getFirstname()), strtolower($this->getName()));
+        return sprintf('%s-%s', strtolower($this->firstname), strtolower($this->name));
     }
 
     public function __construct($firstname = null, $name = null)
@@ -32,53 +32,5 @@ class FakeUserDocument implements DocumentInterface
         if (! is_null($name)) {
             $this->name = $name;
         }
-    }
-
-    /**
-     * Gets the value of name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Sets the value of name.
-     *
-     * @param string $name the name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets the value of firstname.
-     *
-     * @return string
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Sets the value of firstname.
-     *
-     * @param string $firstname the firstname
-     *
-     * @return self
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-
-        return $this;
     }
 }

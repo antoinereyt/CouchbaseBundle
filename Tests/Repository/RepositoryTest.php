@@ -46,8 +46,8 @@ class RepositoryTest extends \PHPUnit_Framework_TestCase
         $doc = $this->repository->findOneByKey('john-smith');
 
         $this->assertInstanceOf('Toiine\CouchbaseBundle\Tests\Repository\FakeUserDocument', $doc);
-        $this->assertEquals('Smith', $doc->getName());
-        $this->assertEquals('John', $doc->getFirstname());
+        $this->assertEquals('Smith', $doc->name);
+        $this->assertEquals('John', $doc->firstname);
     }
 
     /** @covers Toiine\CouchbaseBundle\Repository\Repository::getDocument */
