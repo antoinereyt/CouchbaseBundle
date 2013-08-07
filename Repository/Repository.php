@@ -3,7 +3,7 @@
 namespace Toiine\CouchbaseBundle\Repository;
 
 use Toiine\CouchbaseBundle\Manager\DocumentManager;
-use JMS\Serializer\SerializerInterface;
+use Toiine\CouchbaseBundle\Serializer\SerializerInterface;
 use Toiine\CouchbaseBundle\Entity\Document;
 use Toiine\CouchbaseBundle\Entity\DocumentInterface;
 

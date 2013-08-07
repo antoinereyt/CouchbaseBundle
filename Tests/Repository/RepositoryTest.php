@@ -4,6 +4,7 @@ namespace Toiine\CouchbaseBundle\Tests\Repository;
 
 use Toiine\CouchbaseBundle\Repository\Repository;
 use JMS\Serializer\SerializerBuilder;
+use Toiine\CouchbaseBundle\Serializer\Serializer;
 use Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMock;
 use Toiine\CouchbaseBundle\Entity\Document;
 use Toiine\CouchbaseBundle\Manager\DocumentManager;
@@ -24,10 +25,11 @@ class RepositoryTest extends \PHPUnit_Framework_TestCase
 
         $connexion = new ConnexionMock($this->documents);
         $documentManager = new DocumentManager($connexion);
-        $serializer = SerializerBuilder::create()
+        $jmsSerializer = SerializerBuilder::create()
             ->addMetadataDir(dirname(__FILE__))
             ->build()
         ;
+        $serializer = new Serializer($jmsSerializer, 'Toiine\CouchbaseBundle\Tests\Repository\FakeUserDocument');
 
         $this->repository = new Repository('Toiine\CouchbaseBundle\Tests\Repository\FakeUserDocument', $documentManager, $serializer);
     }
