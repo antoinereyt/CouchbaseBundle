@@ -12,7 +12,12 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     /** @covers Toiine\CouchbaseBundle\Connection\Connection::__construct */
     public function setUp()
     {
-        $this->couchbase = Phake::mock('Couchbase');
+        if (!extension_loaded('couchbase')) {
+            $this->markTestSkipped(
+              'The couchbase extension is not available.'
+            );
+        }
+
         $this->connection = new Connection($this->couchbase);
     }
 
