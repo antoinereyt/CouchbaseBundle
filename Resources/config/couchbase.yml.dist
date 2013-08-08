@@ -16,10 +16,8 @@ connections:
 
 repositories:
     foo:
-        documentClass: Vendor\\Bundle\\FooBundle\\Entity\\Foo
         connection: conn1
     bar:
-        documentClass: Vendor\\Bundle\\BarBundle\\Entity\\Bar
         connection: conn2
         serializer: bar.serializer
         repositoryClass: Vendor\\Bundle\\BarBundle\\Repository\\BarRepository

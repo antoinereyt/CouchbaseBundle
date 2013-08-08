@@ -20,7 +20,7 @@ class RepositoryCompilerPassTest extends CompilerPassTestCase
         $this->assertTrue($container->hasDefinition('couchbase.repository.foo'));
         $def = $container->getDefinition('couchbase.repository.foo');
         $this->assertEquals('Toiine\CouchbaseBundle\Repository\Repository', $def->getClass());
-        $this->assertEquals('couchbase.document_manager.conn1', $def->getArgument(1));
+        $this->assertEquals('couchbase.document_manager.conn1', $def->getArgument(0));
 
         $this->assertTrue($container->hasDefinition('couchbase.repository.bar'));
         $this->assertEquals('Vendor\\Bundle\\BarBundle\\epository\\BarRepository', $container->getDefinition('couchbase.repository.bar')->getClass());
@@ -38,11 +38,9 @@ class RepositoryCompilerPassTest extends CompilerPassTestCase
     {
         return array(
             'foo' => array(
-                'documentClass' => 'Vendor\\Bundle\\FooBundle\\Document\\Foo',
                 'connection'    => 'conn1',
             ),
             'bar' => array(
-                'documentClass'   => 'Vendor\\Bundle\\BarBundle\\Document\\Bar',
                 'connection'      => 'conn2',
                 'serializer'      => 'bar_bundle.serializer',
                 'repositoryClass' => 'Vendor\\Bundle\\BarBundle\\epository\\BarRepository',

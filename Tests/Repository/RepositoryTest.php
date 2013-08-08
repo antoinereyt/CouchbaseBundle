@@ -31,7 +31,7 @@ class RepositoryTest extends \PHPUnit_Framework_TestCase
         ;
         $serializer = new Serializer($jmsSerializer, 'Toiine\CouchbaseBundle\Tests\Repository\FakeUserDocument');
 
-        $this->repository = new Repository('Toiine\CouchbaseBundle\Tests\Repository\FakeUserDocument', $documentManager, $serializer);
+        $this->repository = new Repository($documentManager, $serializer);
     }
 
     /** @covers Toiine\CouchbaseBundle\Repository\Repository::findOneByKey */

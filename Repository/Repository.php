@@ -13,12 +13,6 @@ use Toiine\CouchbaseBundle\Entity\DocumentInterface;
 class Repository
 {
     /**
-     * Classname of the Document.
-     * @var string
-     */
-    protected $documentClass;
-
-    /**
      * @var DocumentManager
      */
     protected $documentManager;
@@ -28,9 +22,8 @@ class Repository
      */
     protected $serializer;
 
-    public function __construct($documentClass, DocumentManager $documentManager, SerializerInterface $serializer)
+    public function __construct(DocumentManager $documentManager, SerializerInterface $serializer)
     {
-        $this->documentClass = $documentClass;
         $this->documentManager = $documentManager;
         $this->serializer = $serializer;
     }

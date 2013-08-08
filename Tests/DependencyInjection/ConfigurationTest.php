@@ -95,11 +95,9 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                     ),
                     'repositories' => array(
                         'foo' => array(
-                            'documentClass' => 'foo',
                             'connection'    => 'conn1',
                         ),
                         'bar' => array(
-                            'documentClass'   => 'bar',
                             'connection'      => 'conn1',
                             'serializer'      => 'bar_bundle.serializer',
                             'repositoryClass' => 'Acme\\Bundle\\BarBundle\\Repository\\BarRepository'
@@ -118,13 +116,11 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                     ),
                     'repositories' => array(
                         'foo' => array(
-                            'documentClass'   => 'foo',
                             'connection'      => 'conn1',
                             'serializer'      => 'jms_serializer',
                             'repositoryClass' => 'Toiine\CouchbaseBundle\Repository\Repository'
                         ),
                         'bar' => array(
-                            'documentClass'   => 'bar',
                             'connection'      => 'conn1',
                             'serializer'      => 'bar_bundle.serializer',
                             'repositoryClass' => 'Acme\\Bundle\\BarBundle\\Repository\\BarRepository'

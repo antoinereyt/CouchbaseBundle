@@ -33,7 +33,6 @@ class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPas
         $repositoryClass = isset($params['repositoryClass'])? $params['repositoryClass'] : 'Toiine\CouchbaseBundle\Repository\Repository';
 
         $args = array(
-            $params['documentClass'],
             new Reference($this->generateDocumentManagerServiceId($params['connection'])),
             $serializerServiceId? new Reference($serializerServiceId):null
         );
