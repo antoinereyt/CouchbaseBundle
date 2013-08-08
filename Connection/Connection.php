@@ -69,8 +69,8 @@ class Connection implements ConnectionInterface
      *
      * @see Couchbase::view
      */
-    public function view($document, $view = "", $options = array(), $return_errors = false)
+    public function view($document, $view = '', $options = array(), $returnErrors = false)
     {
-        return $this->couchbase->view($document, $view, $options, $return_errors);
+        return $this->couchbase->view($document, $view, $options, $returnErrors);
     }
 }
