@@ -13,11 +13,14 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         if (!extension_loaded('couchbase')) {
-            $this->markTestSkipped(
-              'The couchbase extension is not available.'
-            );
+            $this->couchbase = $this->getMockBuilder('CouchbaseMock')
+                ->setMockClassname('Couchbase')
+                ->setMethods(array('get', 'set', 'delete', 'view'))
+                ->getMock()
+            ;
         }
 
+        $this->couchbase = Phake::mock('Couchbase');
         $this->connection = new Connection($this->couchbase);
     }
 
