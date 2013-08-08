@@ -63,4 +63,14 @@ class Connexion implements ConnexionInterface
     {
         $this->couchbase->delete($key);
     }
+
+    /**
+     * Return the documents from a Couchbase view.
+     *
+     * @see Couchbase::view
+     */
+    public function view($document, $view = "", $options = array(), $return_errors = false) {
+    {
+        return $this->couchbase->view($document, $view, $options, $return_errors);
+    }
 }

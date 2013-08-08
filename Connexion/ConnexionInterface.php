@@ -27,4 +27,11 @@ interface ConnexionInterface
      * @param string $key
      */
     public function delete($key);
+
+    /**
+     * Return the documents from a couchbase view.
+     *
+     * @see Couchbase::view
+     */
+    public function view($document, $view = "", $options = array(), $return_errors = false);
 }

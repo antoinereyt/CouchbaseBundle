@@ -44,4 +44,10 @@ class ConnexionMock implements ConnexionInterface
     {
         return $this->documents;
     }
+
+    public function view($document, $view = "", $options = array(), $return_errors = false)
+    {
+        // Not yet implemented
+        return array();
+    }
 }
