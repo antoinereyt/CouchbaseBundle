@@ -5,7 +5,7 @@ namespace Toiine\CouchbaseBundle\Connexion;
 use Couchbase;
 
 /**
- * Represent a Couchbase Connexion.
+ * Wrapper of Couchbase.
  */
 class Connexion implements ConnexionInterface
 {
@@ -26,7 +26,9 @@ class Connexion implements ConnexionInterface
     }
 
     /**
-     * Get a Document by it's key.
+     * Get a document by it's key.
+     *
+     * @see Couchbase::get
      *
      * @param string $key
      *
@@ -38,7 +40,9 @@ class Connexion implements ConnexionInterface
     }
 
     /**
-     * Push a Document to Couchbase.
+     * Push a document to Couchbase.
+     *
+     * @see Couchbase::set
      *
      * @param string $key
      * @param mixed  $value
@@ -49,7 +53,9 @@ class Connexion implements ConnexionInterface
     }
 
     /**
-     * Delete a Document from Couchbase.
+     * Delete a document from Couchbase.
+     *
+     * @see Couchbase::delete
      *
      * @param string $key
      */
