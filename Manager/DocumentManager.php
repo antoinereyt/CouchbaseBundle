@@ -63,4 +63,25 @@ class DocumentManager
     {
         $this->connection->delete($document->getKey());
     }
+
+    /**
+     * Return an array of Document from a Couchbase view.
+     *
+     * @see Couchbase::view
+     */
+    public function view($document, $view = '', $options = array(), $returnErrors = false)
+    {
+        $cbResults = $this->connection->view($document, $view, $options, $returnErrors);
+
+        if (0 == $cbResults['total_rows']) {
+            return array();
+        }
+
+        // Convert couchbase raw results to Document collection
+        $func = function($rawResult) {
+            return new Document($rawResult['id'], $rawResult['value']);
+        };
+
+        return array_map($func, $cbResults['rows']);
+    }
 }
