@@ -1,16 +1,16 @@
 <?php
 
-namespace Toiine\CouchbaseBundle\Connexion;
+namespace Toiine\CouchbaseBundle\Connection;
 
 use Couchbase;
 
 /**
  * Wrapper of Couchbase.
  */
-class Connexion implements ConnexionInterface
+class Connection implements ConnectionInterface
 {
     /**
-     * Connexion to a Couchbase bucket
+     * Connection to a Couchbase bucket
      * @var Couchbase
      */
     protected $couchbase;

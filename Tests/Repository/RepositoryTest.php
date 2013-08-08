@@ -5,7 +5,7 @@ namespace Toiine\CouchbaseBundle\Tests\Repository;
 use Toiine\CouchbaseBundle\Repository\Repository;
 use JMS\Serializer\SerializerBuilder;
 use Toiine\CouchbaseBundle\Serializer\Serializer;
-use Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMock;
+use Toiine\CouchbaseBundle\Tests\Connection\ConnectionMock;
 use Toiine\CouchbaseBundle\Entity\Document;
 use Toiine\CouchbaseBundle\Manager\DocumentManager;
 
@@ -23,8 +23,8 @@ class RepositoryTest extends \PHPUnit_Framework_TestCase
             '
         );
 
-        $connexion = new ConnexionMock($this->documents);
-        $documentManager = new DocumentManager($connexion);
+        $connection = new ConnectionMock($this->documents);
+        $documentManager = new DocumentManager($connection);
         $jmsSerializer = SerializerBuilder::create()
             ->addMetadataDir(dirname(__FILE__))
             ->build()

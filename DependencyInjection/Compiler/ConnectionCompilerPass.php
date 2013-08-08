@@ -26,7 +26,7 @@ class ConnectionCompilerPass extends AbstractCompilerPass implements CompilerPas
         );
 
         // Build definition
-        $definition = new Definition('Toiine\CouchbaseBundle\Connexion\Connexion', $args);
+        $definition = new Definition('Toiine\CouchbaseBundle\Connection\Connection', $args);
 
         return $definition;
     }

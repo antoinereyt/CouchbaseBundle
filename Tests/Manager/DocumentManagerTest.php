@@ -3,7 +3,7 @@
 namespace Toiine\CouchbaseBundle\Tests\Manager;
 
 use Toiine\CouchbaseBundle\Manager\DocumentManager;
-use Toiine\CouchbaseBundle\Tests\Connexion\ConnexionMock;
+use Toiine\CouchbaseBundle\Tests\Connection\ConnectionMock;
 use Toiine\CouchbaseBundle\Entity\Document;
 
 class DocumentManagerTest extends \PHPUnit_Framework_TestCase
@@ -16,8 +16,8 @@ class DocumentManagerTest extends \PHPUnit_Framework_TestCase
             }'
         );
 
-        $connexion = new ConnexionMock($this->documents);
-        $this->manager = new DocumentManager($connexion);
+        $connection = new ConnectionMock($this->documents);
+        $this->manager = new DocumentManager($connection);
     }
 
     /** covers Toiine\CouchbaseBundle\Manager\DocumentManager::get */

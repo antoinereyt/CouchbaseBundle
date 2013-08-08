@@ -1,13 +1,13 @@
 <?php
 
-namespace Toiine\CouchbaseBundle\Tests\Connexion;
+namespace Toiine\CouchbaseBundle\Tests\Connection;
 
-use Toiine\CouchbaseBundle\Connexion\ConnexionInterface;
+use Toiine\CouchbaseBundle\Connection\ConnectionInterface;
 
 /**
- * Mock a Couchbase Connexion for tests.
+ * Mock a Couchbase connection for tests.
  */
-class ConnexionMock implements ConnexionInterface
+class ConnectionMock implements ConnectionInterface
 {
     /**
      * Represent all the documents of a bucket.

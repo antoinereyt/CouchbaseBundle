@@ -1,8 +1,8 @@
 <?php
 
-namespace Toiine\CouchbaseBundle\Connexion;
+namespace Toiine\CouchbaseBundle\Connection;
 
-interface ConnexionInterface
+interface ConnectionInterface
 {
     /**
      * Get a Document by it's key.

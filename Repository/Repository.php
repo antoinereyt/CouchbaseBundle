@@ -19,14 +19,12 @@ class Repository
     protected $documentClass;
 
     /**
-     * Classname of the Document.
-     * @var Couchbase
+     * @var DocumentManager
      */
-    protected $connexion;
+    protected $documentManager;
 
     /**
-     * SerializerInterface
-     * @var
+     * @var SerializerInterface
      */
     protected $serializer;
 
