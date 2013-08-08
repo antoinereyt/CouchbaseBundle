@@ -33,5 +33,5 @@ interface ConnectionInterface
      *
      * @see Couchbase::view
      */
-    public function view($document, $view = "", $options = array(), $return_errors = false);
+    public function view($document, $view = "", $options = array(), $returnErrors = false);
 }
