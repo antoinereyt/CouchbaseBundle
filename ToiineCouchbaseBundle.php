@@ -10,6 +10,9 @@ use Toiine\CouchbaseBundle\DependencyInjection\Compiler\ConnectionCompilerPass;
 use Toiine\CouchbaseBundle\DependencyInjection\Compiler\DocumentManagerCompilerPass;
 use Toiine\CouchbaseBundle\DependencyInjection\Compiler\RepositoryCompilerPass;
 
+/**
+ * @SuppressWarnings(PHPMD.StaticAccess)
+ */
 class ToiineCouchbaseBundle extends Bundle
 {
     public function build(ContainerBuilder $container)

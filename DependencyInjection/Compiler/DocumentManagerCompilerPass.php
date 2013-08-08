@@ -17,7 +17,10 @@ class DocumentManagerCompilerPass extends AbstractCompilerPass implements Compil
         return $this->generateDocumentManagerServiceId($name);
     }
 
-    /** @{@inheritdoc} */
+    /** @{@inheritdoc}
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function getDefinition($name, array $params)
     {
         // Build arguments

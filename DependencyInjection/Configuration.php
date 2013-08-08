@@ -14,6 +14,8 @@ class Configuration implements ConfigurationInterface
 {
     /**
      * {@inheritDoc}
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
      */
     public function getConfigTreeBuilder()
     {
@@ -34,6 +36,11 @@ class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function addConnectionNode()
     {
         $builder = new TreeBuilder();
@@ -70,6 +77,11 @@ class Configuration implements ConfigurationInterface
         return $node;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function addRepositoryNode()
     {
         $builder = new TreeBuilder();

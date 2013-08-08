@@ -16,7 +16,10 @@ class CouchbaseCompilerPass extends AbstractCompilerPass implements CompilerPass
         return $this->generateCouchbaseServiceId($name);
     }
 
-    /** @{@inheritdoc} */
+    /** @{@inheritdoc}
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function getDefinition($name, array $params)
     {
         // Build arguments

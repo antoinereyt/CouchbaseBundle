@@ -32,6 +32,8 @@ class DocumentManager
      * @param string $key
      *
      * @return Document
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
      */
     public function get($key)
     {
@@ -68,6 +70,8 @@ class DocumentManager
      * Return an array of Document from a Couchbase view.
      *
      * @see Couchbase::view
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
      */
     public function view($document, $view = '', $options = array(), $returnErrors = false)
     {

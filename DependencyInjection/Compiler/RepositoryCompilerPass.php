@@ -23,7 +23,10 @@ class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPas
         return $this->generateRepositoryServiceId($name);
     }
 
-    /** @{@inheritdoc} */
+    /** @{@inheritdoc}
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function getDefinition($name, array $params)
     {
         $serializerServiceId = isset($params['serializer'])? $params['serializer'] : null;

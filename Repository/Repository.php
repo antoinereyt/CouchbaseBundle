@@ -60,6 +60,9 @@ class Repository
         $this->documentManager->set($doc);
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function getDocument(DocumentInterface $document)
     {
         if ($document instanceof Document) {

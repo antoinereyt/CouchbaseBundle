@@ -17,12 +17,16 @@ class ConnectionCompilerPass extends AbstractCompilerPass implements CompilerPas
         return $this->generateConnectionServiceId($name);
     }
 
-    /** @{@inheritdoc} */
+    /** @{@inheritdoc}
+     *
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function getDefinition($name, array $params)
     {
         // Build arguments
+        $reference = new Reference($this->generateCouchbaseServiceId($name));
         $args = array(
-            new Reference($this->generateCouchbaseServiceId($name))
+            $reference
         );
 
         // Build definition
