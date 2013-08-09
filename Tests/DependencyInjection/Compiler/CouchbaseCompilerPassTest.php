@@ -16,24 +16,24 @@ class CouchbaseCompilerPassTest extends CompilerPassTestCase
         $this->process($container);
 
         // Couchbase services
-        $this->assertTrue($container->hasDefinition('couchbase.conn1'));
-        $this->assertEquals('Couchbase', $container->getDefinition('couchbase.conn1')->getClass());
+        $this->assertTrue($container->hasDefinition('toiine_couchbase.conn1'));
+        $this->assertEquals('Couchbase', $container->getDefinition('toiine_couchbase.conn1')->getClass());
         $this->assertEquals(array(
                 'localhost:8091',
                 'user',
                 'passw0rd',
                 'bucket1',
             )
-        , $container->getDefinition('couchbase.conn1')->getArguments());
+        , $container->getDefinition('toiine_couchbase.conn1')->getArguments());
 
-        $this->assertTrue($container->hasDefinition('couchbase.conn2'));
+        $this->assertTrue($container->hasDefinition('toiine_couchbase.conn2'));
                 $this->assertEquals(array(
                 '10.0.0.1:9191',
                 'user2',
                 'passw0rd2',
                 'bucket2',
             )
-        , $container->getDefinition('couchbase.conn2')->getArguments());
+        , $container->getDefinition('toiine_couchbase.conn2')->getArguments());
     }
 
     protected function process(ContainerBuilder $container)

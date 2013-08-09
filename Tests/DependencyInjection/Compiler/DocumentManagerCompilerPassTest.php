@@ -16,8 +16,8 @@ class DocumentManagerCompilerPassTest extends CompilerPassTestCase
         $this->process($container);
 
         // DocumentManager services
-        $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn1'));
-        $this->assertTrue($container->hasDefinition('couchbase.document_manager.conn2'));
+        $this->assertTrue($container->hasDefinition('toiine_couchbase.document_manager.conn1'));
+        $this->assertTrue($container->hasDefinition('toiine_couchbase.document_manager.conn2'));
     }
 
     protected function process(ContainerBuilder $container)

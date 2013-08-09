@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Create dynamically the couchbase.repository.<connectionName> services using the configuration.
+ * Create dynamically the toiine_couchbase.repository.<connectionName> services using the configuration.
  */
 class RepositoryCompilerPass extends AbstractCompilerPass implements CompilerPassInterface
 {

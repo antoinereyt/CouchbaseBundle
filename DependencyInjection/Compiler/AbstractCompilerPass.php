@@ -86,7 +86,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
      */
     public function generateCouchbaseServiceId($connectionName)
     {
-        return sprintf('couchbase.%s', $connectionName);
+        return sprintf('toiine_couchbase.%s', $connectionName);
     }
 
     /**
@@ -98,7 +98,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
      */
     public function generateConnectionServiceId($connectionName)
     {
-        return sprintf('couchbase.connection.%s', $connectionName);
+        return sprintf('toiine_couchbase.connection.%s', $connectionName);
     }
 
     /**
@@ -110,7 +110,7 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
      */
     public function generateDocumentManagerServiceId($connectionName)
     {
-        return sprintf('couchbase.document_manager.%s', $connectionName);
+        return sprintf('toiine_couchbase.document_manager.%s', $connectionName);
     }
 
     /**
@@ -122,6 +122,6 @@ abstract class AbstractCompilerPass implements CompilerPassInterface
      */
     public function generateRepositoryServiceId($repositoryName)
     {
-        return sprintf('couchbase.repository.%s', $repositoryName);
+        return sprintf('toiine_couchbase.repository.%s', $repositoryName);
     }
 }

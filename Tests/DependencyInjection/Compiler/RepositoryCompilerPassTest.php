@@ -17,13 +17,13 @@ class RepositoryCompilerPassTest extends CompilerPassTestCase
         $this->process($container);
 
         // Repository services
-        $this->assertTrue($container->hasDefinition('couchbase.repository.foo'));
-        $def = $container->getDefinition('couchbase.repository.foo');
+        $this->assertTrue($container->hasDefinition('toiine_couchbase.repository.foo'));
+        $def = $container->getDefinition('toiine_couchbase.repository.foo');
         $this->assertEquals('Toiine\CouchbaseBundle\Repository\Repository', $def->getClass());
-        $this->assertEquals('couchbase.document_manager.conn1', $def->getArgument(0));
+        $this->assertEquals('toiine_couchbase.document_manager.conn1', $def->getArgument(0));
 
-        $this->assertTrue($container->hasDefinition('couchbase.repository.bar'));
-        $this->assertEquals('Vendor\\Bundle\\BarBundle\\epository\\BarRepository', $container->getDefinition('couchbase.repository.bar')->getClass());
+        $this->assertTrue($container->hasDefinition('toiine_couchbase.repository.bar'));
+        $this->assertEquals('Vendor\\Bundle\\BarBundle\\epository\\BarRepository', $container->getDefinition('toiine_couchbase.repository.bar')->getClass());
     }
 
     protected function process(ContainerBuilder $container)

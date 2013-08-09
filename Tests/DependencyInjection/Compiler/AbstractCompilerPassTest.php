@@ -28,20 +28,20 @@ class AbstractCompilerPassTest extends \PHPUnit_Framework_TestCase
     public function testGenerateConnectionServiceId()
     {
         $serviceId = $this->compiler->generateConnectionServiceId('foo');
-        $this->assertEquals('couchbase.connection.foo', $serviceId);
+        $this->assertEquals('toiine_couchbase.connection.foo', $serviceId);
     }
 
     /** @covers Toiine\CouchbaseBundle\DependencyInjection\Compiler\AbstractCompilerPass::generateDocumentManagerServiceId */
     public function testGenerateDocumentManagerServiceId()
     {
         $serviceId = $this->compiler->generateDocumentManagerServiceId('foo');
-        $this->assertEquals('couchbase.document_manager.foo', $serviceId);
+        $this->assertEquals('toiine_couchbase.document_manager.foo', $serviceId);
     }
 
     /** @covers Toiine\CouchbaseBundle\DependencyInjection\Compiler\AbstractCompilerPass::generateRepositoryServiceId */
     public function testGenerateRepositoryServiceId()
     {
         $serviceId = $this->compiler->generateRepositoryServiceId('foo');
-        $this->assertEquals('couchbase.repository.foo', $serviceId);
+        $this->assertEquals('toiine_couchbase.repository.foo', $serviceId);
     }
 }

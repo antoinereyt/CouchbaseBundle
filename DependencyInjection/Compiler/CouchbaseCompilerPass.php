@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Definition;
 
 /**
- * Create dynamically the couchbase.<connectionName> services using the configuration.
+ * Create dynamically the toiine_couchbase.<connectionName> services using the configuration.
  */
 class CouchbaseCompilerPass extends AbstractCompilerPass implements CompilerPassInterface
 {

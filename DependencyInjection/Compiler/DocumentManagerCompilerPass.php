@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Create dynamically the couchbase.document_manager.<connectionName> services using the configuration.
+ * Create dynamically the toiine_couchbase.document_manager.<connectionName> services using the configuration.
  */
 class DocumentManagerCompilerPass extends AbstractCompilerPass implements CompilerPassInterface
 {
