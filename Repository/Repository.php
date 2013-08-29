@@ -43,7 +43,9 @@ class Repository
             return null;
         }
 
-        return $this->serializer->deserialize($document->getValue());
+        $jsonValue = json_encode($document->getValue());
+
+        return $this->serializer->deserialize($jsonValue);
     }
 
     public function persist(DocumentInterface $document)
@@ -63,7 +65,9 @@ class Repository
         }
 
         if ($document instanceof DocumentInterface) {
-            $value = $this->serializer->serialize($document);
+            $jsonValue = $this->serializer->serialize($document);
+
+            $value = json_decode($jsonValue ,1);
 
             return new Document($document->getKey(), $value);
         }
