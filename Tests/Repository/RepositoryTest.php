@@ -15,13 +15,10 @@ class RepositoryTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->documents = array(
-            'john-smith' => '
-            {
-                "name": "Smith",
-                "firstname": "John"
-            }
-            '
-        );
+            'john-smith' => array(
+                'name' => 'Smith',
+                'firstname' => 'John'
+        ));
 
         $connection = new ConnectionMock($this->documents);
         $documentManager = new DocumentManager($connection);
@@ -68,7 +65,7 @@ class RepositoryTest extends \PHPUnit_Framework_TestCase
         $document = $this->repository->getDocument($entity);
         $this->assertInstanceOf('Toiine\CouchbaseBundle\Entity\Document', $document);
         $this->assertEquals('paul-anderson', $document->getKey());
-        $this->assertEquals('{"firstname":"Paul","name":"Anderson"}', $document->getValue());
+        $this->assertEquals(array('firstname' => 'Paul', 'name' => 'Anderson'), $document->getValue());
     }
 
     /** @covers Toiine\CouchbaseBundle\Repository\Repository::persist */

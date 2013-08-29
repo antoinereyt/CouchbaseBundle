@@ -43,7 +43,7 @@ class Repository
             return null;
         }
 
-        $jsonValue = json_encode($document->getValue());
+        $jsonValue = json_encode($document->getValue(), 1);
 
         return $this->serializer->deserialize($jsonValue);
     }
