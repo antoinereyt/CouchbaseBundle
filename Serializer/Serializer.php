@@ -34,17 +34,26 @@ class Serializer implements SerializerInterface
     protected $groupName;
 
     /**
+     * JMSSerializer option of context to serialize null values.
+     *
+     * @var boolean
+     */
+    protected $serializeNull;
+
+    /**
      * Classname of the Document.
      *
      * @param JMSSerializerInterface $jmsSerializer
      * @param string                 $documentClass
      * @param string|null            $groupName
+     * @param boolean                $serializeNull
      */
-    public function __construct(JMSSerializerInterface $jmsSerializer, $documentClass, $groupName = null)
+    public function __construct(JMSSerializerInterface $jmsSerializer, $documentClass, $groupName = null, $serializeNull = true)
     {
         $this->jmsSerializer = $jmsSerializer;
         $this->documentClass = $documentClass;
         $this->groupName     = $groupName;
+        $this->serializeNull = $serializeNull;
     }
 
     /**
@@ -55,6 +64,7 @@ class Serializer implements SerializerInterface
         $context = SerializationContext::create();
         if (!is_null($this->groupName)) {
             $context->setGroups(array($this->groupName));
+            $context->setSerializeNull($this->serializeNull);
         }
 
         return $this->jmsSerializer->serialize($object, 'json', $context);
@@ -68,6 +78,7 @@ class Serializer implements SerializerInterface
         $context = DeserializationContext::create();
         if (!is_null($this->groupName)) {
             $context->setGroups(array($this->groupName));
+            $context->setSerializeNull($this->serializeNull);
         }
 
         return $this->jmsSerializer->deserialize($json, $this->documentClass, 'json', $context);
