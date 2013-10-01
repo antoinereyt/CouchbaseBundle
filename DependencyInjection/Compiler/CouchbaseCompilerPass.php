@@ -33,6 +33,8 @@ class CouchbaseCompilerPass extends AbstractCompilerPass implements CompilerPass
         // Build definition
         $definition = new Definition('Couchbase', $args);
 
+        $definition->addMethodCall('setOption', array(\Couchbase::OPT_SERIALIZER, \Couchbase::SERIALIZER_JSON));
+
         return $definition;
     }
 }
