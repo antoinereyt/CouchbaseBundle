@@ -115,7 +115,7 @@
     <target name="phpdox" description="Generate API documentation using phpDox">
         <exec executable="phpdox">
             <arg value="-f" />
-            <arg path="${basedir}/app/Resources/jenkins/phpdox.xml" />
+            <arg path="${basedir}/Resources/jenkins/phpdox.xml" />
         </exec>
     </target>
 
