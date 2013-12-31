@@ -6,6 +6,15 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class CompilerPassTestCase extends \PHPUnit_Framework_TestCase
 {
+    public function setUp()
+    {
+        if (!extension_loaded('couchbase')) {
+            $this->markTestSkipped(
+              'The Couchbase extension is not available.'
+            );
+        }
+    }
+
     public function testProcessWithEmptyconfig()
     {
         $container = new ContainerBuilder();
