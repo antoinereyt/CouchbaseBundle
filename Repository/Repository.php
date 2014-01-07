@@ -55,6 +55,10 @@ class Repository
 
     /**
      * @SuppressWarnings(PHPMD.StaticAccess)
+     *
+     * @param DocumentInterface $document
+     *
+     * @return  Document
      */
     public function getDocument(DocumentInterface $document)
     {
