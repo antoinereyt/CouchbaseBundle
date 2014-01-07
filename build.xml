@@ -55,6 +55,8 @@
             <arg value="--log-csv" />
             <arg value="${basedir}/build/logs/phploc.csv" />
             <arg path="${basedir}" />
+            <arg value="--exclude" />
+            <arg value="Tests" />
         </exec>
     </target>
 
@@ -63,7 +65,7 @@
             <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
             <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
             <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
-            <arg value="--ignore=${basedir}/vendor" />
+            <arg value="--ignore=${basedir}/vendor,${basedir}/Tests" />
             <arg path="${basedir}" />
         </exec>
     </target>
@@ -94,6 +96,7 @@
         <exec executable="phpcs">
             <arg value="--standard=Symfony2" />
             <arg path="${basedir}" />
+            <arg value="--ignore=${basedir}/vendor,${basedir}/Tests" />
         </exec>
     </target>
 
@@ -103,6 +106,7 @@
             <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
             <arg value="--standard=Symfony2" />
             <arg path="${basedir}" />
+            <arg value="--ignore=${basedir}/vendor,${basedir}/Tests" />
         </exec>
     </target>
 
@@ -111,6 +115,8 @@
             <arg value="--log-pmd" />
             <arg value="${basedir}/build/logs/pmd-cpd.xml" />
             <arg path="${basedir}" />
+            <arg value="--exclude" />
+            <arg value="vendor,Tests" />
         </exec>
     </target>
 
@@ -136,6 +142,8 @@
             <arg path="${basedir}" />
             <arg value="--output" />
             <arg path="${basedir}/build/code-browser" />
+            <arg value="--exclude" />
+            <arg value="vendor,Tests" />
         </exec>
     </target>
 
