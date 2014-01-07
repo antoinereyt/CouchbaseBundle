@@ -70,10 +70,11 @@
 
     <target name="phpmd" description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
         <exec executable="phpmd">
-            <arg path="${basedir}" />
+            <arg path="${basedir}/" />
             <arg value="text" />
             <arg value="${basedir}/Resources/jenkins/phpmd.xml" />
-            <arg value="--exclude=vendor" />
+            <arg value="--exclude" />
+            <arg value="vendor,Tests" />
         </exec>
     </target>
 
@@ -84,7 +85,8 @@
             <arg value="${basedir}/Resources/jenkins/phpmd.xml" />
             <arg value="--reportfile" />
             <arg value="${basedir}/build/logs/pmd.xml" />
-            <arg value="--exclude=vendor" />
+            <arg value="--exclude" />
+            <arg value="vendor,Tests" />
         </exec>
     </target>
 
