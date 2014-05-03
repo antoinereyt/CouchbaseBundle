@@ -28,11 +28,11 @@ class Connection implements ConnectionInterface
     /**
      * Get a document by it's key.
      *
-     * @see Couchbase::get
-     *
      * @param string $key
      *
      * @return mixed
+     *
+     * @see Couchbase::get
      */
     public function get($key)
     {
@@ -42,10 +42,10 @@ class Connection implements ConnectionInterface
     /**
      * Push a document to Couchbase.
      *
-     * @see Couchbase::set
-     *
      * @param string $key
      * @param mixed  $value
+     *
+     * @see Couchbase::set
      */
     public function set($key, $value)
     {
@@ -55,9 +55,9 @@ class Connection implements ConnectionInterface
     /**
      * Delete a document from Couchbase.
      *
-     * @see Couchbase::delete
-     *
      * @param string $key
+     *
+     * @see Couchbase::delete
      */
     public function delete($key)
     {
