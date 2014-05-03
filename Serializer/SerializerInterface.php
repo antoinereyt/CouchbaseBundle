@@ -12,7 +12,7 @@ interface SerializerInterface
     /**
      * Serialize a DocumentInterface object in json format
      *
-     * @param  DocumentInterface $object
+     * @param DocumentInterface $object
      *
      * @return string
      */
@@ -21,7 +21,7 @@ interface SerializerInterface
     /**
      * Serialize a json string in a DocumentInterface object
      *
-     * @param  string $json
+     * @param string $json
      *
      * @return DocumentInterface
      */
