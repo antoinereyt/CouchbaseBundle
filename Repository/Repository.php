@@ -58,7 +58,7 @@ class Repository
      *
      * @param DocumentInterface $document
      *
-     * @return  Document
+     * @return Document
      */
     public function getDocument(DocumentInterface $document)
     {
