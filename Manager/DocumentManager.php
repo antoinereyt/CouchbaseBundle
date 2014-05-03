@@ -82,7 +82,7 @@ class DocumentManager
         }
 
         // Convert couchbase raw results to Document collection
-        $func = function($rawResult) {
+        $func = function ($rawResult) {
             return new Document($rawResult['id'], $rawResult['value']);
         };
 
