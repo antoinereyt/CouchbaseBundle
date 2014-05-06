@@ -49,3 +49,52 @@ connections:
     password: cOuchb4s3
     bucket: bucket2
 ```
+
+## Services
+A compiler pass will generate services according to the configuration file
+
+```bash
+php app/console container:debug | grep couchbase
+```
+
+| Service name        | Class           |
+| ------------- | ------------- |
+| toiine_couchbase.conn1 | Couchbase |
+| toiine_couchbase.conn2 | Couchbase |
+
+You can use toiine_couchbase.\<connectionName\> services to manipulate you documents.
+
+NB: documentation on other services will come soon.
+
+## Usage
+
+```php
+<?php
+
+namespace Acme\HelloBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
+
+class DocController
+{
+    public function getDocumentAction($key)
+    {
+        $couchbase = $this->get('toiine_couchbase.conn1');
+        
+        // Get a doc from couchbase
+        $doc = $couchbase->get($key);
+        
+        // Push a doc to couchbase
+        $couchbase->set($key, $doc);
+        
+        // Delete a doc from couchbase
+        $couchbase->delete($key);
+        
+        ...
+    }
+}
+```
+
+## TODO
+  - add a profiling panel in the web debug toolbar : see the calls and the time they took
+  - integrate Jms Serializer : manipulate Entities through Couchbase the same way as Doctrine EntityManager
