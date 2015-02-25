@@ -21,3 +21,4 @@ repositories:
         connection: conn2
         serializer: bar.serializer
         repositoryClass: Vendor\\Bundle\\BarBundle\\Repository\\BarRepository
+
