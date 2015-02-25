@@ -22,7 +22,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Toiine\Bundle\CouchbaseBundle\ToiineCouchbaseBundle(),
+        new Toiine\CouchbaseBundle\ToiineCouchbaseBundle(),
         // ...
     );
 }
