@@ -1,7 +1,6 @@
 {
     "name": "toiine/couchbasebundle",
     "description": "Symfony2 bundle to manipulate Couchbase Documents.",
-    "version": "0.1.0",
     "homepage": "https://github.com/toiine/CouchbaseBundle",
     "type": "symfony-bundle",
     "keywords": ["couchbase"],
